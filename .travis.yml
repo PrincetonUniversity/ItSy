@@ -1,0 +1,42 @@
+language: cpp
+os: linux
+sudo: required
+dist: trusty
+
+branches:
+    only:
+      - master
+
+git:
+    depth: 1
+
+before_install:
+  - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
+  - sudo apt-get -qq --yes update
+   
+install: 
+  - sudo apt-get install --yes cmake cmake-data
+  - sudo apt-get install --yes libboost-all-dev
+
+before_script:
+  - export PARENT_DIR=$TRAVIS_BUILD_DIR/../
+  # z3
+  - cd $PARENT_DIR
+  - git clone --depth 1 https://github.com/Z3Prover/z3.git
+  - cd z3
+  - python scripts/mk_make.py
+  - cd build
+  - make; sudo make install
+
+script:
+  - cd $TRAVIS_BUILD_DIR/
+  # Boost bjam
+  - bjam
+  - rm -r bin/*
+  # CMake
+  - mkdir -p $TRAVIS_BUILD_DIR/cbuild && cd cbuild
+  - cmake ../ -L -DZ3_INCLUDE_DIR=/usr/include -DCMAKE_CXX_COMPILER=g++-4.8
+  - make
+
+notifications:
+    email: false

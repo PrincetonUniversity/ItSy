@@ -3,8 +3,7 @@ Template-based synthesis for Instruction-Level Abstraction (ILA) and the corresp
 
 ## Building ILA synthesis tool
 
-Build Status
-------------
+[![Build Status](https://travis-ci.org/PrincetonILA/ILA-Synthesis.svg?branch=master)](https://travis-ci.org/PrincetonILA/ILA-Synthesis)
 
 #### z3 
 Building ILA synthesis tool requires [z3](https://github.com/Z3Prover/z3) 4.4.0 or above.
