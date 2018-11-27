@@ -24,7 +24,7 @@ before_script:
   - cd CMake
   - git checkout tags/v3.8.0 -b v380
   - ./bootstrap
-  - make && make install
+  - make && sudo make install
   - cmake --version
   # z3
   - cd $PARENT_DIR
@@ -33,7 +33,7 @@ before_script:
   - mkdir -p build
   - cd build
   - cmake ..
-  - make && make install
+  - make && sudo make install
   - z3 --version
 
 script:
