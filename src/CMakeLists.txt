@@ -73,10 +73,9 @@ set_target_properties(${ILASYNTH_AST_LIB_NAME} PROPERTIES
   POSITION_INDEPENDENT_CODE ON
 )
 
-#target_compile_options(${ILASYNTH_AST_LIB_NAME} PRIVATE 
-#  -DBOOST_VARIANT_USE_RELAXED_GET_BY_DEFAULT
-#)
-
+##
+## link libraries
+##
 target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Boost)
 target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC PythonLibs)
 target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC z3::z3)
@@ -114,6 +113,7 @@ add_library(${ILASYNTH_LIB_NAME}
   Unroller.cpp 
   EqvChecker.cpp
 )
+add_library(${PROJECT_NAME}::${ILASYNTH_LIB_NAME} ALIAS ${ILASYNTH_LIB_NAME})
 
 target_compile_features(${ILASYNTH_LIB_NAME} PUBLIC cxx_std_11)
 
@@ -125,6 +125,9 @@ target_compile_options(${ILASYNTH_LIB_NAME} PRIVATE
   -DBOOST_VARIANT_USE_RELAXED_GET_BY_DEFAULT
 )
 
+##
+## link libraries
+##
 target_link_libraries(${ILASYNTH_LIB_NAME} PUBLIC Boost)
 target_link_libraries(${ILASYNTH_LIB_NAME} PUBLIC PythonLibs)
 target_link_libraries(${ILASYNTH_LIB_NAME} PUBLIC z3::z3)
@@ -172,5 +175,4 @@ install(
   DIRECTORY ${ILASYNTH_INCLUDE_BUILD_DIR}/ilasynth
   DESTINATION ${ILASYNTH_INCLUDE_INSTALL_DIR}
 )
-
 
