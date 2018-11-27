@@ -11,22 +11,30 @@ git:
     depth: 1
 
 before_install:
-  - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
   - sudo apt-get -qq --yes update
    
 install: 
-  - sudo apt-get install --yes cmake cmake-data
   - sudo apt-get install --yes libboost-all-dev
 
 before_script:
   - export PARENT_DIR=$TRAVIS_BUILD_DIR/../
+  # cmake
+  - cd $PARENT_DIR
+  - git clone https://github.com/Kitware/CMake.git
+  - cd CMake
+  - git checkout tags/v3.8.0 -b v380
+  - ./bootstrap
+  - make && make install
+  - cmake --version
   # z3
   - cd $PARENT_DIR
   - git clone --depth 1 https://github.com/Z3Prover/z3.git
   - cd z3
-  - python scripts/mk_make.py
+  - mkdir -p build
   - cd build
-  - make; sudo make install
+  - cmake ..
+  - make && make install
+  - z3 --version
 
 script:
   - cd $TRAVIS_BUILD_DIR/
@@ -35,7 +43,7 @@ script:
   - rm -r bin/*
   # CMake
   - mkdir -p $TRAVIS_BUILD_DIR/cbuild && cd cbuild
-  - cmake ../ -L -DZ3_INCLUDE_DIR=/usr/include -DCMAKE_CXX_COMPILER=g++-4.8
+  - cmake .. 
   - make
 
 notifications:
