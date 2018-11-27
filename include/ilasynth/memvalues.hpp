@@ -4,9 +4,9 @@
 #include <iostream>
 #include <map>
 
-#include <common.hpp>
-#include <ast/node.hpp>
-#include <type.hpp>
+#include <ilasynth/common.hpp>
+#include <ilasynth/ast/node.hpp>
+#include <ilasynth/type.hpp>
 
 #include <boost/python.hpp>
 #include <z3++.h>

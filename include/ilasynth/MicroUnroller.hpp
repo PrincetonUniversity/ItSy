@@ -11,9 +11,9 @@
 #include "boost/dynamic_bitset.hpp"
 #include "boost/logic/tribool.hpp"
 #include <z3++.h>
-#include <util.hpp>
+#include <ilasynth/util.hpp>
 
-#include <ast.hpp>
+#include <ilasynth/ast.hpp>
 
 namespace ila
 {

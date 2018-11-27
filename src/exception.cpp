@@ -1,4 +1,4 @@
-#include <exception.hpp>
+#include <ilasynth/exception.hpp>
 
 namespace ila 
 {

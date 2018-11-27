@@ -1,12 +1,12 @@
 #include <boost/python.hpp>
 
-#include <ast.hpp>
-#include <type.hpp>
-#include <util.hpp>
-#include <exception.hpp>
-#include <abstraction.hpp>
-#include <logging.hpp>
-#include <EqvChecker.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/type.hpp>
+#include <ilasynth/util.hpp>
+#include <ilasynth/exception.hpp>
+#include <ilasynth/abstraction.hpp>
+#include <ilasynth/logging.hpp>
+#include <ilasynth/EqvChecker.hpp>
 
 using namespace boost::python;
 using namespace ila;

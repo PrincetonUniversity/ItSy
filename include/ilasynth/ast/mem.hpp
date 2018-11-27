@@ -4,9 +4,9 @@
 #include <vector>
 #include <utility>
 
-#include <ast.hpp>
+#include <ilasynth/ast.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
-#include <memvalues.hpp>
+#include <ilasynth/memvalues.hpp>
 
 namespace ila 
 {

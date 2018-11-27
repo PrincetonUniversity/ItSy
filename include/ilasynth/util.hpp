@@ -2,7 +2,7 @@
 #define __UTIL_H_DEFINED__
 
 #include <string>
-#include <common.hpp>
+#include <ilasynth/common.hpp>
 #include <boost/python.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
 

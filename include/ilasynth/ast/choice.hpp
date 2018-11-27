@@ -1,10 +1,10 @@
 #ifndef __AST_SYN_HPP_DEFINED__
 #define __AST_SYN_HPP_DEFINED__
 
-#include <ast/node.hpp>
-#include <ast/bool.hpp>
-#include <ast/bitvec.hpp>
-#include <type.hpp>
+#include <ilasynth/ast/node.hpp>
+#include <ilasynth/ast/bool.hpp>
+#include <ilasynth/ast/bitvec.hpp>
+#include <ilasynth/type.hpp>
 
 namespace ila 
 {

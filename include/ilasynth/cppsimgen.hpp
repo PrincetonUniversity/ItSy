@@ -1,9 +1,9 @@
 #ifndef __CPPSIMGEN_HPP_DEFINED
 #define __CPPSIMGEN_HPP_DEFINED
 
-#include <ast.hpp>
-#include <util.hpp>
-#include <exception.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/util.hpp>
+#include <ilasynth/exception.hpp>
 #include <boost/shared_ptr.hpp>
 
 #include <fstream>

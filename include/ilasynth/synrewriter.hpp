@@ -1,8 +1,8 @@
 #ifndef __SYN_HPP_DEFINED__
 #define __SYN_HPP_DEFINED__
 
-#include <ast.hpp>
-#include <smt.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/smt.hpp>
 
 namespace ila
 {

@@ -2,12 +2,12 @@
 #define __SMT_HPP_DEFINED__
 
 #include <z3++.h>
-#include <ast.hpp>
-#include <util.hpp>
-#include <exception.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/util.hpp>
+#include <ilasynth/exception.hpp>
 #include <unordered_map>
 #include <boost/shared_ptr.hpp>
-#include <ast/hash.hpp>
+#include <ilasynth/ast/hash.hpp>
 
 namespace ila 
 {

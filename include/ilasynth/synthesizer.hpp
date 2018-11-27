@@ -10,11 +10,11 @@
 #include <boost/variant.hpp>
 #include <z3++.h>
 
-#include <common.hpp>
-#include <ast.hpp>
-#include <smt.hpp>
-#include <synrewriter.hpp>
-#include <abstraction.hpp>
+#include <ilasynth/common.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/smt.hpp>
+#include <ilasynth/synrewriter.hpp>
+#include <ilasynth/abstraction.hpp>
 
 namespace ila
 {

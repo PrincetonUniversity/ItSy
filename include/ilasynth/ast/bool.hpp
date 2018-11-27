@@ -10,9 +10,9 @@
 
 #include <z3++.h>
 #include <assert.h>
-#include <type.hpp>
+#include <ilasynth/type.hpp>
 
-#include <ast.hpp>
+#include <ilasynth/ast.hpp>
 
 namespace ila 
 {

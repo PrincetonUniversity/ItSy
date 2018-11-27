@@ -1,9 +1,9 @@
 #ifndef __IMEXPORT_HPP_DEFINED__
 #define __IMEXPORT_HPP_DEFINED__
 
-#include <ast.hpp>
+#include <ilasynth/ast.hpp>
 
-#include <funcReduct.hpp>
+#include <ilasynth/funcReduct.hpp>
 
 namespace ila 
 {

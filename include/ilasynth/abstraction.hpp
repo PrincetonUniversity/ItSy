@@ -7,16 +7,16 @@
 #include <string>
 #include <boost/python.hpp>
 
-#include <common.hpp>
-#include <ast.hpp>
-#include <smt.hpp>
-#include <imexport.hpp>
-#include <VerilogExport.hpp>
-#include <cppsimgen.hpp>
-#include <genCBMC.hpp>
-#include <MicroUnroller.hpp>
-#include <boogie.hpp>
-#include <horn.hpp>
+#include <ilasynth/common.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/smt.hpp>
+#include <ilasynth/imexport.hpp>
+#include <ilasynth/VerilogExport.hpp>
+#include <ilasynth/cppsimgen.hpp>
+#include <ilasynth/genCBMC.hpp>
+#include <ilasynth/MicroUnroller.hpp>
+#include <ilasynth/boogie.hpp>
+#include <ilasynth/horn.hpp>
 
 namespace ila
 {

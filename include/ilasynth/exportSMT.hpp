@@ -3,9 +3,9 @@
 #define __EXPORT_SMT_DEFINED__
 
 #include <iostream>
-#include <ast.hpp>
-#include <abstraction.hpp>
-#include <smt.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/abstraction.hpp>
+#include <ilasynth/smt.hpp>
 
 namespace ila
 {

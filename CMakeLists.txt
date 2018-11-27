@@ -11,7 +11,7 @@ endif()
 # PROJECT
 # name version language
 # ---------------------------------------------------------------------------- #
-project(ILASynth VERSION 1.0 
+project(ilasynth VERSION 1.0 
                  LANGUAGES CXX
                  #DESCRIPTION "Templted-based ILA synthesis"
 )

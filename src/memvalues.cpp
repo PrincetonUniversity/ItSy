@@ -1,12 +1,12 @@
-#include <memvalues.hpp>
+#include <ilasynth/memvalues.hpp>
 #include <set>
 
-#include <ast.hpp>
-#include <util.hpp>
-#include <exception.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/util.hpp>
+#include <ilasynth/exception.hpp>
 #include <boost/python.hpp>
-#include <smt.hpp>
-#include <logging.hpp>
+#include <ilasynth/smt.hpp>
+#include <ilasynth/logging.hpp>
 
 namespace ila
 {

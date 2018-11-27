@@ -1,9 +1,9 @@
 #include <boost/algorithm/string.hpp>
-#include <logging.hpp>
+#include <ilasynth/logging.hpp>
 #include <fstream>
-#include <exception.hpp>
+#include <ilasynth/exception.hpp>
 #include <set>
-#include <util.hpp>
+#include <ilasynth/util.hpp>
 
 namespace ila
 {

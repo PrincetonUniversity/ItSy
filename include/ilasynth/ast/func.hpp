@@ -9,8 +9,8 @@
 #include <boost/multiprecision/cpp_int.hpp>
 #include <boost/lexical_cast.hpp>
 
-#include <type.hpp>
-#include <ast.hpp>
+#include <ilasynth/type.hpp>
+#include <ilasynth/ast.hpp>
 
 namespace ila
 {

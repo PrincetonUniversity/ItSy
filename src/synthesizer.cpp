@@ -1,8 +1,8 @@
-#include <synthesizer.hpp>
-#include <exception.hpp>
-#include <util.hpp>
-#include <rewriter.hpp>
-#include <logging.hpp>
+#include <ilasynth/synthesizer.hpp>
+#include <ilasynth/exception.hpp>
+#include <ilasynth/util.hpp>
+#include <ilasynth/rewriter.hpp>
+#include <ilasynth/logging.hpp>
 
 namespace ila
 {

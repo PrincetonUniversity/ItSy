@@ -1,6 +1,6 @@
-#include <type.hpp>
-#include <exception.hpp>
-#include <ast/hash.hpp>
+#include <ilasynth/type.hpp>
+#include <ilasynth/exception.hpp>
+#include <ilasynth/ast/hash.hpp>
 
 namespace ila
 {

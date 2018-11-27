@@ -1,4 +1,4 @@
-#include <genCBMC.hpp>
+#include <ilasynth/genCBMC.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/algorithm/string.hpp>
 #include <bitset>

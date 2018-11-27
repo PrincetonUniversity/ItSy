@@ -4,12 +4,12 @@
 #include <boost/lexical_cast.hpp>
 #include <boost/algorithm/string.hpp>
 
-#include <ast.hpp>
-#include <util.hpp>
-#include <exception.hpp>
-#include <logging.hpp>
-#include <common.hpp>
-#include <horn.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/util.hpp>
+#include <ilasynth/exception.hpp>
+#include <ilasynth/logging.hpp>
+#include <ilasynth/common.hpp>
+#include <ilasynth/horn.hpp>
 
 namespace ila
 {

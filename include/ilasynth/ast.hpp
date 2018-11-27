@@ -10,16 +10,16 @@
 
 #include <z3++.h>
 #include <assert.h>
-#include <type.hpp>
+#include <ilasynth/type.hpp>
 
-#include <common.hpp>
-#include <ast/node.hpp>
-#include <ast/bool.hpp>
-#include <ast/bitvec.hpp>
-#include <ast/func.hpp>
-#include <ast/mem.hpp>
-#include <ast/choice.hpp>
-#include <ast/bvinrange.hpp>
+#include <ilasynth/common.hpp>
+#include <ilasynth/ast/node.hpp>
+#include <ilasynth/ast/bool.hpp>
+#include <ilasynth/ast/bitvec.hpp>
+#include <ilasynth/ast/func.hpp>
+#include <ilasynth/ast/mem.hpp>
+#include <ilasynth/ast/choice.hpp>
+#include <ilasynth/ast/bvinrange.hpp>
 
 #include <boost/shared_ptr.hpp>
 #include <boost/python.hpp>

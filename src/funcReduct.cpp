@@ -1,5 +1,5 @@
-#include <funcReduct.hpp>
-#include <ast/hash.hpp>
+#include <ilasynth/funcReduct.hpp>
+#include <ilasynth/ast/hash.hpp>
 
 namespace ila
 {

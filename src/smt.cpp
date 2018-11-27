@@ -1,7 +1,7 @@
-#include <smt.hpp>
-#include <ast.hpp>
-#include <synthesizer.hpp>
-#include <logging.hpp>
+#include <ilasynth/smt.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/synthesizer.hpp>
+#include <ilasynth/logging.hpp>
 #include <memory>
 
 namespace ila

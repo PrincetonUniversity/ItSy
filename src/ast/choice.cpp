@@ -1,8 +1,8 @@
-#include <ast.hpp>
-#include <type.hpp>
-#include <ast/choice.hpp>
-#include <exception.hpp>
-#include <util.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/type.hpp>
+#include <ilasynth/ast/choice.hpp>
+#include <ilasynth/exception.hpp>
+#include <ilasynth/util.hpp>
 
 namespace ila
 {

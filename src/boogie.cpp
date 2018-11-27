@@ -1,5 +1,5 @@
-#include <boogie.hpp>
-#include <abstraction.hpp>
+#include <ilasynth/boogie.hpp>
+#include <ilasynth/abstraction.hpp>
 
 namespace ila
 {

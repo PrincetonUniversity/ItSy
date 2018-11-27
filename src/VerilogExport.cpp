@@ -1,9 +1,9 @@
 
 
-#include <abstraction.hpp>
-#include <VerilogExport.hpp>
-#include <util.hpp>
-#include <logging.hpp>
+#include <ilasynth/abstraction.hpp>
+#include <ilasynth/VerilogExport.hpp>
+#include <ilasynth/util.hpp>
+#include <ilasynth/logging.hpp>
 #include <boost/range/adaptor/reversed.hpp>
 
 #define toStr(x) (boost::lexical_cast<std::string>(x))

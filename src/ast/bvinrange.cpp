@@ -1,6 +1,6 @@
-#include <ast.hpp>
-#include <ast/bvinrange.hpp>
-#include <exception.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/ast/bvinrange.hpp>
+#include <ilasynth/exception.hpp>
 
 namespace ila
 {

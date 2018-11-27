@@ -1,8 +1,8 @@
-#include "Unroller.hpp"
-#include "smt.hpp"
-#include "abstraction.hpp"
-#include "ast.hpp"
-#include "rewriter.hpp"
+#include <ilasynth/Unroller.hpp>
+#include <ilasynth/smt.hpp>
+#include <ilasynth/abstraction.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/rewriter.hpp>
 #include <sstream>
 
 using namespace std;

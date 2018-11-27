@@ -10,7 +10,7 @@
 
 #include <z3++.h>
 #include <assert.h>
-#include <type.hpp>
+#include <ilasynth/type.hpp>
 
 #include <boost/shared_ptr.hpp>
 #include <boost/multiprecision/cpp_int.hpp>

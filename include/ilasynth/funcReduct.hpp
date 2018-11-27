@@ -8,7 +8,7 @@
 #ifndef __FUNCTION_REDUCTION_HPP_DEFINED__
 #define __FUNCTION_REDUCTION_HPP_DEFINED__
 
-#include <ast.hpp>
+#include <ilasynth/ast.hpp>
 namespace ila
 {
     class FuncReduction

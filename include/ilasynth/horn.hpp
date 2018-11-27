@@ -5,8 +5,8 @@
 #include <map>
 #include <set>
 
-#include <type.hpp>
-#include <ast.hpp>
+#include <ilasynth/type.hpp>
+#include <ilasynth/ast.hpp>
 
 namespace ila
 {

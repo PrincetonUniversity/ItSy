@@ -1,6 +1,6 @@
-#include <simplify.hpp>
-#include <logging.hpp>
-#include <util.hpp>
+#include <ilasynth/simplify.hpp>
+#include <ilasynth/logging.hpp>
+#include <ilasynth/util.hpp>
 
 namespace ila
 {

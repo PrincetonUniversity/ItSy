@@ -2,9 +2,9 @@
 #define _EQVCHECKER_H_
 
 
-#include "Unroller.hpp"
-#include "MicroUnroller.hpp"
-#include "abstraction.hpp"
+#include <ilasynth/Unroller.hpp>
+#include <ilasynth/MicroUnroller.hpp>
+#include <ilasynth/abstraction.hpp>
 #include "boost/foreach.hpp"
 
 #include <vector>

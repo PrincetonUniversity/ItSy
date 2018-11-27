@@ -1,6 +1,6 @@
-#include "EqvChecker.hpp"
-#include <ast.hpp>
-#include <abstraction.hpp>
+#include <ilasynth/EqvChecker.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/abstraction.hpp>
 
 using namespace std;
 

@@ -1,11 +1,11 @@
 #ifndef __SIMPLIFY_HPP_DEFINED__
 #define __SIMPLIFY_HPP_DEFINED__
 
-#include <ast.hpp>
-#include <smt.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/smt.hpp>
 #include <stack>
-#include <smt.hpp>
-#include <rewriter.hpp>
+#include <ilasynth/smt.hpp>
+#include <ilasynth/rewriter.hpp>
 #include <boost/logic/tribool.hpp>
 
 namespace ila

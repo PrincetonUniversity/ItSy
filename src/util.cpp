@@ -1,5 +1,5 @@
-#include <util.hpp>
-#include <exception.hpp>
+#include <ilasynth/util.hpp>
+#include <ilasynth/exception.hpp>
 #include <boost/python.hpp>
 #include <frameobject.h> // for PyFrameObject
 

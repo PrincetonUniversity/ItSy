@@ -1,8 +1,8 @@
 #ifndef __REWRITER_HPP_DEFINED__
 #define __REWRITER_HPP_DEFINED__
 
-#include <common.hpp>
-#include <ast.hpp>
+#include <ilasynth/common.hpp>
+#include <ilasynth/ast.hpp>
 #include <unordered_map>
 
 namespace ila

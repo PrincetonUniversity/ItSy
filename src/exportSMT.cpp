@@ -1,4 +1,4 @@
-#include <exportSMT.hpp>
+#include <ilasynth/exportSMT.hpp>
 
 namespace ila
 {

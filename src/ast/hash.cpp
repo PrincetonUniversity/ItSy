@@ -1,8 +1,8 @@
 
-#include <ast.hpp>
-#include <ast/hash.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/ast/hash.hpp>
 #include <boost/functional/hash.hpp>
-#include <logging.hpp>
+#include <ilasynth/logging.hpp>
 #include <functional>
 
 namespace ila

@@ -3,10 +3,10 @@
 #include <cstdint>
 #include <limits>
 
-#include <ast.hpp>
-#include <util.hpp>
-#include <exception.hpp>
-#include <abstraction.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/util.hpp>
+#include <ilasynth/exception.hpp>
+#include <ilasynth/abstraction.hpp>
 
 namespace ila
 {

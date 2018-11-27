@@ -5,10 +5,10 @@
 #include <tuple>
 
 #include <iostream>
-#include <ast.hpp>
-#include <abstraction.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/abstraction.hpp>
 
-#include <ast/node.hpp>
+#include <ilasynth/ast/node.hpp>
 
 namespace ila
 {

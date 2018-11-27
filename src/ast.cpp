@@ -1,12 +1,12 @@
 #include <iostream>
 #include <boost/lexical_cast.hpp>
 
-#include <ast.hpp>
-#include <util.hpp>
-#include <exception.hpp>
-#include <abstraction.hpp>
-#include <simplify.hpp>
-#include <ast/hash.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/util.hpp>
+#include <ilasynth/exception.hpp>
+#include <ilasynth/abstraction.hpp>
+#include <ilasynth/simplify.hpp>
+#include <ilasynth/ast/hash.hpp>
 
 namespace ila
 {

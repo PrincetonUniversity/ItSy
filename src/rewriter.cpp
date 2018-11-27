@@ -1,5 +1,5 @@
-#include <rewriter.hpp>
-#include <util.hpp>
+#include <ilasynth/rewriter.hpp>
+#include <ilasynth/util.hpp>
 
 namespace ila
 {

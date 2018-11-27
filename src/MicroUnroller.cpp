@@ -1,9 +1,9 @@
-#include "MicroUnroller.hpp"
-#include "smt.hpp"
-#include "abstraction.hpp"
-#include "ast.hpp"
-#include "rewriter.hpp"
-#include "logging.hpp"
+#include <ilasynth/MicroUnroller.hpp>
+#include <ilasynth/smt.hpp>
+#include <ilasynth/abstraction.hpp>
+#include <ilasynth/ast.hpp>
+#include <ilasynth/rewriter.hpp>
+#include <ilasynth/logging.hpp>
 #include <sstream>
 
 using namespace std;
