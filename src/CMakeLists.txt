@@ -152,7 +152,6 @@ install(
   RUNTIME DESTINATION bin
   INCLUDES DESTINATION ${ILASYNTH_INCLUDE_INSTALL_DIR}
 )
-)
 
 ##
 ## include directory
