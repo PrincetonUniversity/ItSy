@@ -1,59 +1,125 @@
-project(ila)
-cmake_minimum_required(VERSION 2.8.6)
+cmake_minimum_required(VERSION 3.8)
 
-if (CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR ) 
-  message (FATAL_ERROR
-    "In-source builds are not allowed. Please clean your source tree and try again.")  
-endif()
-
-# Add path for custom modules
-set(CMAKE_MODULE_PATH
-  ${CMAKE_MODULE_PATH}
-  "${CMAKE_CURRENT_SOURCE_DIR}/cmake"
-  )
-
-add_definitions ("-std=c++11 -fPIC -DBOOST_VARIANT_USE_RELAXED_GET_BY_DEFAULT")
-add_definitions ("-D BOOST_NO_CXX11_NUMERIC_LIMITS=1 -D DISABLE_ICE_DEPRECATION_WARNINGS")
-
-set (CUSTOM_BOOST_ROOT "" CACHE PATH "Path to custom boost installation.")
-if (CUSTOM_BOOST_ROOT)
-  set (BOOST_ROOT ${CUSTOM_BOOST_ROOT})
-  set (Boost_NO_SYSTEM_PATHS "ON")
-endif()
-
-set (Boost_USE_STATIC_LIBS OFF)
-find_package (Boost 1.54.0 REQUIRED python)
-IF (Boost_FOUND)
-  include_directories (${Boost_INCLUDE_DIRS})
-endif ()
-
-find_package (PythonLibs 2.7 REQUIRED)
-if (PYTHONLIBS_FOUND)
-  message(STATUS "PYTHON_LIBRARIES = ${PYTHON_LIBRARIES}")
-  message(STATUS "PYTHON_EXECUTABLE = ${PYTHON_EXECUTABLE}")
-  message(STATUS "PYTHON_INCLUDE_DIRS = ${PYTHON_INCLUDE_DIRS}")
-  include_directories(${PYTHON_INCLUDE_DIRS})
-elseif (NOT PYTHONLIBS_FOUND) 
-  MESSAGE(FATAL_ERROR "Unable to find correct Python version.")
-endif()
-
-# prefer linking with static libraries
-#set(CMAKE_FIND_LIBRARY_SUFFIXES ".a" ${CMAKE_FIND_LIBRARY_SUFFIXES})
-
-# prefer linking with shared libraries
-set(CMAKE_FIND_LIBRARY_SUFFIXES ".so" ${CMAKE_FIND_LIBRARY_SUFFIXES})
-
-
-find_package(Z3 REQUIRED)
-if (Z3_FOUND)
-  include_directories(${Z3_INCLUDE_DIR})
+if(${CMAKE_VERSION} VERSION_LESS 3.12)
+  cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
 else()
-  set(Z3_LIBRARY "")
-endif ()
+  cmake_policy(VERSION 3.12)
+endif()
 
-include_directories(
-  ${CMAKE_CURRENT_SOURCE_DIR}/include
-  ${CMAKE_CURRENT_BINARY_DIR}/include
+
+# ---------------------------------------------------------------------------- #
+# PROJECT
+# name version language
+# ---------------------------------------------------------------------------- #
+project(ILASynth VERSION 1.0 
+                 LANGUAGES CXX
+                 #DESCRIPTION "Templted-based ILA synthesis"
+)
+
+# ---------------------------------------------------------------------------- #
+# OPTION
+# build configuration
+# ---------------------------------------------------------------------------- #
+
+# ---------------------------------------------------------------------------- #
+# VARIABLE
+# alias and configurations
+# ---------------------------------------------------------------------------- #
+set(ILASYNTH_TARGET_NAME                ${PROJECT_NAME})
+set(ILASYNTH_CONFIG_INSTALL_DIR         "lib/cmake/${PROJECT_NAME}" CACHE INTERNAL "")
+set(ILASYNTH_INCLUDE_INSTALL_DIR        "include")
+set(ILASYNTH_INCLUDE_BUILD_DIR          "${PROJECT_SOURCE_DIR}/include")
+set(ILASYNTH_TARGETS_EXPORT_NAME        "${PROJECT_NAME}Targets")
+set(ILASYNTH_CMAKE_CONFIG_TEMPLATE      "cmake/config.cmake.in")
+set(ILASYNTH_CMAKE_CONFIG_DIR           "${CMAKE_CURRENT_BINARY_DIR}")
+set(ILASYNTH_CMAKE_PROJECT_TARGETS_FILE "${PROJECT_NAME}Targets.cmake")
+
+set(ILASYNTH_CMAKE_VERSION_CONFIG_FILE
+  "${ILASYNTH_CMAKE_CONFIG_DIR}/${PROJECT_NAME}ConfigVersion.cmake")
+
+set(ILASYNTH_CMAKE_PROJECT_CONFIG_FILE
+  "${ILASYNTH_CMAKE_CONFIG_DIR}/${PROJECT_NAME}Config.cmake")
+
+
+# ---------------------------------------------------------------------------- #
+# External dependencies
+# ---------------------------------------------------------------------------- #
+##
+## Make sure that custom modules can be found.
+##
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
+
+
+# ---------------------------------------------------------------------------- #
+# TARGET
+# library target
+# ---------------------------------------------------------------------------- #
+set(ILASYNTH_LIB_NAME ${PROJECT_NAME})
+set(ILASYNTH_AST_LIB_NAME ${ILASYNTH_LIB_NAME}Ast)
+add_subdirectory(src)
+
+
+# ---------------------------------------------------------------------------- #
+# INSTALL
+# project related
+# ---------------------------------------------------------------------------- #
+##
+## forward version for find_package
+##
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+  ${ILASYNTH_CMAKE_VERSION_CONFIG_FILE} 
+  COMPATIBILITY SameMajorVersion # AnyNewVersion
+)
+
+##
+## cmake config
+##
+configure_file(
+  ${ILASYNTH_CMAKE_CONFIG_TEMPLATE}
+  ${ILASYNTH_CMAKE_PROJECT_CONFIG_FILE}
+  @ONLY
+)
+
+install(
+  FILES ${ILASYNTH_CMAKE_PROJECT_CONFIG_FILE} ${ILASYNTH_CMAKE_VERSION_CONFIG_FILE}
+  DESTINATION ${ILASYNTH_CONFIG_INSTALL_DIR}
+)
+
+##
+## project export
+##
+install(
+  EXPORT ${ILASYNTH_TARGETS_EXPORT_NAME}
+  DESTINATION ${ILASYNTH_CONFIG_INSTALL_DIR}
+  NAMESPACE ${PROJECT_NAME}::
+  FILE ${ILASYNTH_CMAKE_PROJECT_TARGETS_FILE}
+)
+
+export(
+  TARGETS ${ILASYNTH_AST_LIB_NAME} ${ILASYNTH_LIB_NAME}
+  NAMESPACE ${PROJECT_NAME}::
+  FILE ${ILASYNTH_CMAKE_PROJECT_TARGETS_FILE}
+)
+
+export(PACKAGE ${PROJECT_NAME})
+
+
+# ---------------------------------------------------------------------------- #
+# UNINSTALL
+# uninstall files listed in install_manifest.txt
+# ---------------------------------------------------------------------------- #
+if(NOT TARGET uninstall)
+  configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/cmake/cmake_uninstall.cmake"
+    IMMEDIATE @ONLY
   )
 
-add_subdirectory(src)
+  add_custom_target(uninstall
+    COMMAND 
+      ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake/cmake_uninstall.cmake
+  )
+
+endif()
+
