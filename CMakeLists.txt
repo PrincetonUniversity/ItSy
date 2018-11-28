@@ -102,7 +102,7 @@ export(
   FILE ${ILASYNTH_CMAKE_PROJECT_TARGETS_FILE}
 )
 
-export(PACKAGE ${PROJECT_NAME})
+#export(PACKAGE ${PROJECT_NAME})
 
 
 # ---------------------------------------------------------------------------- #
