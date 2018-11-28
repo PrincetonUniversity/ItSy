@@ -30,7 +30,8 @@ before_script:
   - cd $PARENT_DIR
   - git clone --depth 1 https://github.com/Z3Prover/z3.git
   - cd z3
-  - git checkout tags/z3-4.7.1 -b v471
+  #- git checkout tags/z3-4.7.1 -b v471
+  - git checkout 3b1b82bef05a1b5fd69ece79c80a95fb6d72a990
   - mkdir -p build
   - cd build
   - cmake ..
