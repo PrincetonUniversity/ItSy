@@ -20,6 +20,7 @@ project(ilasynth VERSION 1.0
 # OPTION
 # build configuration
 # ---------------------------------------------------------------------------- #
+option(ILASYNTH_EXPORT_PACKAGE "export cmake package if enabled"            OFF)
 
 # ---------------------------------------------------------------------------- #
 # VARIABLE
@@ -102,7 +103,9 @@ export(
   FILE ${ILASYNTH_CMAKE_PROJECT_TARGETS_FILE}
 )
 
-export(PACKAGE ${PROJECT_NAME})
+if(${ILASYNTH_EXPORT_PACKAGE})
+  export(PACKAGE ${PROJECT_NAME})
+endif()
 
 
 # ---------------------------------------------------------------------------- #
