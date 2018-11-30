@@ -2,7 +2,6 @@
 # define dependencies
 # ---------------------------------------------------------------------------- #
 include(CMakeFindDependencyMacro)
-#find_dependency(glog REQUIRED)
 
 # ---------------------------------------------------------------------------- #
 # define exports

@@ -60,9 +60,11 @@ find_package(Z3 REQUIRED)
 add_library(${ILASYNTH_AST_LIB_NAME}
   ast/bitvec.cpp 
   ast/bool.cpp 
-  ast/node.cpp 
-  ast/choice.cpp 
   ast/bvinrange.cpp 
+  ast/choice.cpp 
+  ast/func.cpp
+  ast/hash.cpp
+  ast/node.cpp 
   ast/mem.cpp 
   ast/node.cpp
 )
@@ -76,9 +78,9 @@ set_target_properties(${ILASYNTH_AST_LIB_NAME} PROPERTIES
 ##
 ## link libraries
 ##
-target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Boost)
-target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC PythonLibs)
-target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC z3::z3)
+target_link_libraries(${ILASYNTH_AST_LIB_NAME} PRIVATE Boost)
+target_link_libraries(${ILASYNTH_AST_LIB_NAME} PRIVATE PythonLibs)
+target_link_libraries(${ILASYNTH_AST_LIB_NAME} PRIVATE z3::z3)
 
 ##
 ## include paths
@@ -97,21 +99,31 @@ target_include_directories(${ILASYNTH_AST_LIB_NAME}
 add_library(${ILASYNTH_LIB_NAME} 
   abstraction.cpp 
   ast.cpp 
+  boogie.cpp
+  cExport.cpp
   cppsimgen.cpp 
-  ext.cpp 
-  logging.cpp 
-  rewriter.cpp 
-  smt.cpp 
-  synthesizer.cpp 
-  util.cpp 
   exception.cpp 
+  exportSMT.cpp
+  ext.cpp 
+  funcReduct.cpp
+  genCBMC.cpp
+  horn.cpp
+  hornInt.cpp
+  hornMapping.cpp
   imexport.cpp 
+  logging.cpp 
   memvalues.cpp 
-  simplify.cpp 
+  rewriter.cpp 
+  simplify.cpp
+  smt.cpp 
   synrewriter.cpp 
+  synthesizer.cpp 
   type.cpp 
-  Unroller.cpp 
+  util.cpp 
   EqvChecker.cpp
+  MicroUnroller.cpp
+  Unroller.cpp 
+  VerilogExport.cpp
 )
 add_library(${PROJECT_NAME}::${ILASYNTH_LIB_NAME} ALIAS ${ILASYNTH_LIB_NAME})
 
@@ -128,10 +140,10 @@ target_compile_options(${ILASYNTH_LIB_NAME} PRIVATE
 ##
 ## link libraries
 ##
-target_link_libraries(${ILASYNTH_LIB_NAME} PUBLIC Boost)
-target_link_libraries(${ILASYNTH_LIB_NAME} PUBLIC PythonLibs)
-target_link_libraries(${ILASYNTH_LIB_NAME} PUBLIC z3::z3)
-target_link_libraries(${ILASYNTH_LIB_NAME} PUBLIC ${ILASYNTH_AST_LIB_NAME}) 
+target_link_libraries(${ILASYNTH_LIB_NAME} PRIVATE Boost)
+target_link_libraries(${ILASYNTH_LIB_NAME} PRIVATE PythonLibs)
+target_link_libraries(${ILASYNTH_LIB_NAME} PRIVATE z3::z3)
+target_link_libraries(${ILASYNTH_LIB_NAME} PRIVATE ${ILASYNTH_AST_LIB_NAME}) 
 
 ##
 ## include paths
@@ -148,7 +160,16 @@ target_include_directories(${ILASYNTH_LIB_NAME}
 # install and export lib target
 # ---------------------------------------------------------------------------- #
 install(
-  TARGETS ${ILASYNTH_AST_LIB_NAME} ${ILASYNTH_LIB_NAME}
+  TARGETS ${ILASYNTH_AST_LIB_NAME} # ${ILASYNTH_LIB_NAME}
+  EXPORT ${ILASYNTH_TARGETS_EXPORT_NAME}
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
+  INCLUDES DESTINATION ${ILASYNTH_INCLUDE_INSTALL_DIR}
+)
+
+install(
+  TARGETS ${ILASYNTH_LIB_NAME}
   EXPORT ${ILASYNTH_TARGETS_EXPORT_NAME}
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
@@ -159,18 +180,6 @@ install(
 ##
 ## include directory
 ##
-#configure_file(
-#  ${PROJECT_SOURCE_DIR}/src/config.h.in
-#  ${PROJECT_SOURCE_DIR}/include/ilang/config.h
-#  @ONLY
-#)
-
-#install(
-#  FILES ${ILANG_INCLUDE_BUILD_DIR}/ila-synth/cpp_api.h
-#  DESTINATION ${ILANG_INCLUDE_INSTALL_DIR}
-#  RENAME ila_synth.h
-#)
-
 install(
   DIRECTORY ${ILASYNTH_INCLUDE_BUILD_DIR}/ilasynth
   DESTINATION ${ILASYNTH_INCLUDE_INSTALL_DIR}
