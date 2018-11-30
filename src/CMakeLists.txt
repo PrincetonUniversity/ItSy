@@ -64,7 +64,6 @@ add_library(${ILASYNTH_AST_LIB_NAME}
   ast/choice.cpp 
   ast/func.cpp
   ast/hash.cpp
-  ast/node.cpp 
   ast/mem.cpp 
   ast/node.cpp
 )
