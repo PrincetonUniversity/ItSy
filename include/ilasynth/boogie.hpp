@@ -3,55 +3,53 @@
 
 #include <cassert>
 
+#include <memory>
 #include <unordered_map>
 #include <vector>
-#include <memory>
 
-#include "boost/foreach.hpp"
 #include "boost/dynamic_bitset.hpp"
+#include "boost/foreach.hpp"
 #include "boost/logic/tribool.hpp"
-#include <z3++.h>
+#include <ilasynth/smt.hpp>
 #include <ilasynth/util.hpp>
 #include <stack>
-#include <ilasynth/smt.hpp>
+#include <z3++.h>
 
 #include <ilasynth/ast.hpp>
 
-namespace ila
-{
-    class Abstraction;
+namespace ila {
+class Abstraction;
 
-    class BoogieTranslator
-    {
-    public:
-        typedef std::vector<z3::expr> exprvec_t;
-        typedef std::stack<exprvec_t> stack_t;
-    private:
-        // pointer to the abstraction we are translating.
-        Abstraction* abs;  
-        nodeset_t fetchVars;
-        nodevec_t inpFV, varFV, constFV;
-        exprvec_t constEx;
+class BoogieTranslator {
+public:
+  typedef std::vector<z3::expr> exprvec_t;
+  typedef std::stack<exprvec_t> stack_t;
 
-        // stack.
-        stack_t states;
+private:
+  // pointer to the abstraction we are translating.
+  Abstraction* abs;
+  nodeset_t fetchVars;
+  nodevec_t inpFV, varFV, constFV;
+  exprvec_t constEx;
 
-        // SMT.
-        z3::context c_;
-        Z3ExprAdapter c;
+  // stack.
+  stack_t states;
 
-        // is constant.
-        bool isConstant(const npair_t* obj);
+  // SMT.
+  z3::context c_;
+  Z3ExprAdapter c;
 
-    public:
-        // constructor.
-        BoogieTranslator(Abstraction* a);
-        // destructor.
-        virtual ~BoogieTranslator();
-        // convert to boogie.
-        void translate();
-    };
-}
+  // is constant.
+  bool isConstant(const npair_t* obj);
 
+public:
+  // constructor.
+  BoogieTranslator(Abstraction* a);
+  // destructor.
+  virtual ~BoogieTranslator();
+  // convert to boogie.
+  void translate();
+};
+} // namespace ila
 
 #endif /* __BOOGIE_HPP_DEFINED__ */

@@ -8,179 +8,159 @@
 #include <ilasynth/common.hpp>
 #include <ilasynth/type.hpp>
 
-namespace ila 
-{
-    class Abstraction;
+namespace ila {
+class Abstraction;
 
-    // ---------------------------------------------------------------------- //
-    struct Choice {
-        // the operands themselves.
-        nptr_vec_t args;
-        // vector of names for boolean variables.
-        std::vector< std::string > choiceVars;
-        // constructor.
-        Choice(const std::string& name, 
-               const nptr_vec_t& args);
-        // kind of a copy constructor.
-        Choice(const Choice* that, 
-               const nptr_vec_t& args_);
-        // destructor.
-        ~Choice();
-        
-        // check types and return the result type.
-        static NodeType getChoiceType(
-            const nptr_vec_t& args);
+// ---------------------------------------------------------------------- //
+struct Choice {
+  // the operands themselves.
+  nptr_vec_t args;
+  // vector of names for boolean variables.
+  std::vector<std::string> choiceVars;
+  // constructor.
+  Choice(const std::string& name, const nptr_vec_t& args);
+  // kind of a copy constructor.
+  Choice(const Choice* that, const nptr_vec_t& args_);
+  // destructor.
+  ~Choice();
 
-        // check equality.
-        bool equal(const Choice& that) const;
+  // check types and return the result type.
+  static NodeType getChoiceType(const nptr_vec_t& args);
 
-        // dump to stream.
-        std::ostream& write(std::ostream& out) const;
+  // check equality.
+  bool equal(const Choice& that) const;
 
-        // choice variable name.
-        const char* getChoiceVarName(unsigned i) const {
-            if ((i+1) < args.size()) {
-                return choiceVars[i].c_str();
-            } else {
-                return NULL;
-            }
-        }
-    };
+  // dump to stream.
+  std::ostream& write(std::ostream& out) const;
 
-    // ---------------------------------------------------------------------- //
-    template<typename T>
-    class ChoiceExpr : public T
-    {
-    protected:
-        Choice choice;
-    public:
-        // constructor.
-        ChoiceExpr(
-            const std::string& n_,
-            const nptr_vec_t& args_)
-          : T(Choice::getChoiceType(args_))
-          , choice(n_, args_)
-        {
-            this->name = n_;
-        }
+  // choice variable name.
+  const char* getChoiceVarName(unsigned i) const {
+    if ((i + 1) < args.size()) {
+      return choiceVars[i].c_str();
+    } else {
+      return NULL;
+    }
+  }
+};
 
-        // destructor
-        virtual ~ChoiceExpr() {}
+// ---------------------------------------------------------------------- //
+template <typename T> class ChoiceExpr : public T {
+protected:
+  Choice choice;
 
-        // clone.
-        virtual Node* clone() const
-        {
-            return new ChoiceExpr(
-                this->name, choice.args);
-        }
+public:
+  // constructor.
+  ChoiceExpr(const std::string& n_, const nptr_vec_t& args_)
+      : T(Choice::getChoiceType(args_)), choice(n_, args_) {
+    this->name = n_;
+  }
 
-        // clone with new args.
-        ChoiceExpr* clone(const nptr_vec_t& args) const
-        {
-            return new ChoiceExpr(this->name, args);
-        }
+  // destructor
+  virtual ~ChoiceExpr() {}
 
-        // equal.
-        virtual bool equal(const Node* that_) const
-        {
-            const ChoiceExpr<T>* that = 
-                dynamic_cast< const ChoiceExpr<T>* >(that_);
-            if (that == NULL) return false;
-            else return choice.equal(that->choice);
-        }
+  // clone.
+  virtual Node* clone() const {
+    return new ChoiceExpr(this->name, choice.args);
+  }
 
-        // write to stream.
-        virtual std::ostream& write(std::ostream& out) const
-        {
-            return choice.write(out);
-        }
+  // clone with new args.
+  ChoiceExpr* clone(const nptr_vec_t& args) const {
+    return new ChoiceExpr(this->name, args);
+  }
 
-        // number of arguments.
-        virtual unsigned nArgs() const
-        {
-            return choice.args.size();
-        }
+  // equal.
+  virtual bool equal(const Node* that_) const {
+    const ChoiceExpr<T>* that = dynamic_cast<const ChoiceExpr<T>*>(that_);
+    if (that == NULL)
+      return false;
+    else
+      return choice.equal(that->choice);
+  }
 
-        // return arg i.
-        virtual nptr_t arg(unsigned i) const
-        {
-            if (i < choice.args.size()) { return choice.args[i]; } 
-            else { return NULL; }
-        }
+  // write to stream.
+  virtual std::ostream& write(std::ostream& out) const {
+    return choice.write(out);
+  }
 
-        // return the SMT variable name.
-        const char* getChoiceVarName(unsigned i) const {
-            return choice.getChoiceVarName(i);
-        }
-    };
+  // number of arguments.
+  virtual unsigned nArgs() const { return choice.args.size(); }
 
-    // ---------------------------------------------------------------------- //
-    typedef ChoiceExpr<BitvectorExpr> BitvectorChoice;
-    typedef ChoiceExpr<BoolExpr> BoolChoice;
-    typedef ChoiceExpr<MemExpr> MemChoice;
+  // return arg i.
+  virtual nptr_t arg(unsigned i) const {
+    if (i < choice.args.size()) {
+      return choice.args[i];
+    } else {
+      return NULL;
+    }
+  }
 
-    // ---------------------------------------------------------------------- //
-    class ReadSlice : public BitvectorChoice
-    {
-    private:
-        // private constructor: called by the static function.
-        ReadSlice(const std::string& name, 
-                  const nptr_vec_t& args, 
-                  const nptr_t& bv, 
-                  int width, int incr);
-    public:
-        // destructor.
-        virtual ~ReadSlice();
+  // return the SMT variable name.
+  const char* getChoiceVarName(unsigned i) const {
+    return choice.getChoiceVarName(i);
+  }
+};
 
-        // the bitvector.
-        nptr_t bitvec;
-        // slice width.
-        int width;
-        // the increment between slices.
-        int increment;
+// ---------------------------------------------------------------------- //
+typedef ChoiceExpr<BitvectorExpr> BitvectorChoice;
+typedef ChoiceExpr<BoolExpr> BoolChoice;
+typedef ChoiceExpr<MemExpr> MemChoice;
 
-        // factory method.
-        static ReadSlice* createReadSlice(
-            const std::string& name, 
-            const nptr_t& bv, int width, int incr);
-            
-        // clone.
-        virtual Node* clone() const;
+// ---------------------------------------------------------------------- //
+class ReadSlice : public BitvectorChoice {
+private:
+  // private constructor: called by the static function.
+  ReadSlice(const std::string& name, const nptr_vec_t& args, const nptr_t& bv,
+            int width, int incr);
 
-        // stream output
-        virtual std::ostream& write(std::ostream& out) const;
-    };
+public:
+  // destructor.
+  virtual ~ReadSlice();
 
-    // ---------------------------------------------------------------------- //
-    class WriteSlice : public BitvectorChoice
-    {
-    private:
-        // private constructor: called by the static function.
-        WriteSlice(const std::string& name, 
-                   const nptr_vec_t& args, 
-                   const nptr_t& bv, 
-                   const nptr_t& wr, int incr);
-    public:
-        // destructor.
-        virtual ~WriteSlice();
-        // the bitvector.
-        nptr_t bitvec;
-        // the thing to replace it with.
-        nptr_t data;
-        // the increment for the choices of slice to write.
-        int increment;
+  // the bitvector.
+  nptr_t bitvec;
+  // slice width.
+  int width;
+  // the increment between slices.
+  int increment;
 
-        // factory method.
-        static WriteSlice* createWriteSlice(
-            const std::string& name, 
-            const nptr_t& bv, const nptr_t& wr, int incr);
-            
-        // clone.
-        virtual Node* clone() const;
+  // factory method.
+  static ReadSlice* createReadSlice(const std::string& name, const nptr_t& bv,
+                                    int width, int incr);
 
-        // stream output
-        virtual std::ostream& write(std::ostream& out) const;
-    };
-}
+  // clone.
+  virtual Node* clone() const;
+
+  // stream output
+  virtual std::ostream& write(std::ostream& out) const;
+};
+
+// ---------------------------------------------------------------------- //
+class WriteSlice : public BitvectorChoice {
+private:
+  // private constructor: called by the static function.
+  WriteSlice(const std::string& name, const nptr_vec_t& args, const nptr_t& bv,
+             const nptr_t& wr, int incr);
+
+public:
+  // destructor.
+  virtual ~WriteSlice();
+  // the bitvector.
+  nptr_t bitvec;
+  // the thing to replace it with.
+  nptr_t data;
+  // the increment for the choices of slice to write.
+  int increment;
+
+  // factory method.
+  static WriteSlice* createWriteSlice(const std::string& name, const nptr_t& bv,
+                                      const nptr_t& wr, int incr);
+
+  // clone.
+  virtual Node* clone() const;
+
+  // stream output
+  virtual std::ostream& write(std::ostream& out) const;
+};
+} // namespace ila
 
 #endif

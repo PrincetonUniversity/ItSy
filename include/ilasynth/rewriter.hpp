@@ -1,46 +1,44 @@
 #ifndef __REWRITER_HPP_DEFINED__
 #define __REWRITER_HPP_DEFINED__
 
-#include <ilasynth/common.hpp>
 #include <ilasynth/ast.hpp>
+#include <ilasynth/common.hpp>
 #include <unordered_map>
 
-namespace ila
-{
-    // A function object that rewrites the AST according to the result
-    // of the synthesis.
-    class Rewriter
-    {
-    public:
-        // Define types.
-    protected:
-        // the map between old and new nodes.
-        rwmap_t rwmap;
+namespace ila {
+// A function object that rewrites the AST according to the result
+// of the synthesis.
+class Rewriter {
+public:
+  // Define types.
+protected:
+  // the map between old and new nodes.
+  rwmap_t rwmap;
 
-        // find the rewritten args.
-        void getNewArgs(const Node* n, nptr_vec_t& args);
+  // find the rewritten args.
+  void getNewArgs(const Node* n, nptr_vec_t& args);
 
-        // get the nodes' replacement.
-        nptr_t getRepl(const Node* n) const;
+  // get the nodes' replacement.
+  nptr_t getRepl(const Node* n) const;
 
-        // do the actual rewriting.
-        void doRewrite(const Node* n);
-    public:
-        // Constructor.
-        Rewriter();
+  // do the actual rewriting.
+  void doRewrite(const Node* n);
 
-        // Destructor.
-        ~Rewriter();
+public:
+  // Constructor.
+  Rewriter();
 
-        // This is used by depthFirstVisit.
-        void operator() (const Node* n);
+  // Destructor.
+  ~Rewriter();
 
-        // do the rewrite.
-        nptr_t rewrite(const Node* n);
+  // This is used by depthFirstVisit.
+  void operator()(const Node* n);
 
-        // add a node to be rewritten.
-        void addRewrite(const Node* n, const nptr_t& nprime);
+  // do the rewrite.
+  nptr_t rewrite(const Node* n);
 
-    };
-}
+  // add a node to be rewritten.
+  void addRewrite(const Node* n, const nptr_t& nprime);
+};
+} // namespace ila
 #endif
