@@ -1,6 +1,5 @@
 #ifndef __AST_NODE_HPP_DEFINED__
 #define __AST_NODE_HPP_DEFINED__
-
 #include <iostream>
 #include <string>
 #include <set>
@@ -8,9 +7,10 @@
 #include <memory>
 #include <unordered_map>
 
-#include <z3++.h>
 #include <assert.h>
+#include <ilasynth/common.hpp>
 #include <ilasynth/type.hpp>
+#include <z3++.h>
 
 #include <boost/shared_ptr.hpp>
 #include <boost/multiprecision/cpp_int.hpp>

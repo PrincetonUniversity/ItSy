@@ -10,9 +10,10 @@
 #include <boost/multiprecision/cpp_int.hpp>
 #include <boost/lexical_cast.hpp>
 
-#include <z3++.h>
 #include <assert.h>
+#include <ilasynth/ast/node.hpp>
 #include <ilasynth/type.hpp>
+#include <z3++.h>
 
 #include <ilasynth/ast.hpp>
 

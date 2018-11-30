@@ -22,6 +22,7 @@
 #include <boost/python.hpp>
 
 #include <ilasynth/ast.hpp>
+#include <ilasynth/ast/node.hpp>
 
 namespace ila
 {
