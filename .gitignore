@@ -33,6 +33,7 @@
 
 # Edit
 *.swp
+tags
 
 # build
 build/*
