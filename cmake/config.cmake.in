@@ -2,6 +2,9 @@
 # define dependencies
 # ---------------------------------------------------------------------------- #
 include(CMakeFindDependencyMacro)
+find_dependency(Z3 REQUIRED)
+find_dependency(Python 2.7 REQUIRED COMPONENTS Development)
+find_dependency(Boost 1.50 REQUIRED COMPONENTS python)
 
 # ---------------------------------------------------------------------------- #
 # define exports

@@ -34,42 +34,21 @@ set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 find_package(ilasynth REQUIRED)
 
 ##
-## z3
-##
-find_package(Z3 REQUIRED)
-
-##
-## Boost
-##
-find_package(Boost 1.50 REQUIRED COMPONENTS python)
-
-if(NOT TARGET Boost)
-  add_library(Boost IMPORTED INTERFACE)
-
-  set_property(TARGET Boost PROPERTY
-    INTERFACE_INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
-  )
-
-  set_property(TARGET Boost PROPERTY
-    INTERFACE_LINK_LIBRARIES ${Boost_LIBRARIES}
-  )
-
-endif()
-
-##
 ## Python
 ##
-find_package(PythonLibs 2.7 REQUIRED)
+# Imported target for Python is supported only for CMake >= 3.12
+if(NOT TARGET Python::Python)
 
-if(NOT TARGET PythonLibs)
-  add_library(PythonLibs IMPORTED INTERFACE)
+  message(STATUS "Imported target Python::Python not found.")
 
-  set_property(TARGET PythonLibs PROPERTY
-    INTERFACE_INCLUDE_DIRECTORIES ${PYTHON_INCLUDE_DIRS}
+  add_library(Python::Python IMPORTED INTERFACE)
+
+  set_property(TARGET Python::Python PROPERTY
+    INTERFACE_INCLUDE_DIRECTORIES ${Python_INCLUDE_DIRS}
   )
 
-  set_property(TARGET PythonLibs PROPERTY
-    INTERFACE_LINK_LIBRARIES ${PYTHON_LIBRARIES}
+  set_property(TARGET Python::Python PROPERTY
+    INTERFACE_LINK_LIBRARIES ${Python_LIBRARIES}
   )
 
 endif()
@@ -87,7 +66,4 @@ add_executable(${MyTarget}
 target_include_directories(${MyTarget} PRIVATE include)
 
 target_link_libraries(${MyTarget} ilasynth::ilasynth)
-target_link_libraries(${MyTarget} z3::z3)
-target_link_libraries(${MyTarget} Boost)
-target_link_libraries(${MyTarget} PythonLibs)
 

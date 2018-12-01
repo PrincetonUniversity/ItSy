@@ -11,39 +11,27 @@ set(Boost_USE_STATIC_RUNTIME OFF)
 
 find_package(Boost 1.50 REQUIRED COMPONENTS python)
 
-# This is needed if your Boost version is newer than your CMake version
-if(NOT TARGET Boost)
-  add_library(Boost IMPORTED INTERFACE)
-
-  set_property(TARGET Boost PROPERTY
-    INTERFACE_INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
-  )
-
-  set_property(TARGET Boost PROPERTY
-    INTERFACE_LINK_LIBRARIES ${Boost_LIBRARIES}
-  )
-
+# Imported target for Boost is supported for CMake >= 3.5
+if(NOT TARGET Boost::python)
+  message(FATAL_ERROR "Boost::python not found.")
 endif()
 
 ##
 ## Python
 ##
-find_package(PythonLibs 2.7 REQUIRED)
-message(STATUS "Python version: ${PYTHONLIBS_VERSION}")
-if (PYTHONLIBS_FOUND)
-  message(STATUS "PYTHON_LIBRARIES = ${PYTHON_LIBRARIES}")
-  message(STATUS "PYTHON_INCLUDE_DIRS = ${PYTHON_INCLUDE_DIRS}")
-endif()
+find_package(Python 2.7 REQUIRED COMPONENTS Development)
 
-if(NOT TARGET PythonLibs)
-  add_library(PythonLibs IMPORTED INTERFACE)
+# Imported target for Python is supported for CMake >= 3.12
+if(NOT TARGET Python::Python)
 
-  set_property(TARGET PythonLibs PROPERTY
-    INTERFACE_INCLUDE_DIRECTORIES ${PYTHON_INCLUDE_DIRS}
+  add_library(Python::Python IMPORTED INTERFACE)
+
+  set_property(TARGET Python::Python PROPERTY
+    INTERFACE_INCLUDE_DIRECTORIES ${Python_INCLUDE_DIRS}
   )
 
-  set_property(TARGET PythonLibs PROPERTY
-    INTERFACE_LINK_LIBRARIES ${PYTHON_LIBRARIES}
+  set_property(TARGET Python::Python PROPERTY
+    INTERFACE_LINK_LIBRARIES ${Python_LIBRARIES}
   )
 
 endif()
@@ -77,9 +65,9 @@ set_target_properties(${ILASYNTH_AST_LIB_NAME} PROPERTIES
 ##
 ## link libraries
 ##
-target_link_libraries(${ILASYNTH_AST_LIB_NAME} PRIVATE Boost)
-target_link_libraries(${ILASYNTH_AST_LIB_NAME} PRIVATE PythonLibs)
-target_link_libraries(${ILASYNTH_AST_LIB_NAME} PRIVATE z3::z3)
+target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Boost::python)
+target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Python::Python)
+target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC z3::z3)
 
 ##
 ## include paths
@@ -139,10 +127,7 @@ target_compile_options(${ILASYNTH_LIB_NAME} PRIVATE
 ##
 ## link libraries
 ##
-target_link_libraries(${ILASYNTH_LIB_NAME} PRIVATE Boost)
-target_link_libraries(${ILASYNTH_LIB_NAME} PRIVATE PythonLibs)
-target_link_libraries(${ILASYNTH_LIB_NAME} PRIVATE z3::z3)
-target_link_libraries(${ILASYNTH_LIB_NAME} PRIVATE ${ILASYNTH_AST_LIB_NAME}) 
+target_link_libraries(${ILASYNTH_LIB_NAME} PUBLIC ${ILASYNTH_AST_LIB_NAME}) 
 
 ##
 ## include paths
