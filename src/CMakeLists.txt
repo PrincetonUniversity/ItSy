@@ -19,20 +19,28 @@ endif()
 ##
 ## Python
 ##
-find_package(Python 2.7 REQUIRED COMPONENTS Development)
+if(${CMAKE_VERSION} VERSION_LESS 3.12)
 
-# Imported target for Python is supported for CMake >= 3.12
-if(NOT TARGET Python::Python)
+  find_package(PythonLibs 2.7 REQUIRED)
 
-  add_library(Python::Python IMPORTED INTERFACE)
+  if(NOT TARGET Python::Python)
 
-  set_property(TARGET Python::Python PROPERTY
-    INTERFACE_INCLUDE_DIRECTORIES ${Python_INCLUDE_DIRS}
-  )
+    add_library(Python::Python IMPORTED INTERFACE)
 
-  set_property(TARGET Python::Python PROPERTY
-    INTERFACE_LINK_LIBRARIES ${Python_LIBRARIES}
-  )
+    set_property(TARGET Python::Python PROPERTY
+      INTERFACE_INCLUDE_DIRECTORIES ${PYTHON_INCLUDE_DIRS}
+    )
+
+    set_property(TARGET Python::Python PROPERTY
+      INTERFACE_LINK_LIBRARIES ${PYTHON_LIBRARIES}
+    )
+
+  endif() # target Python::Python
+
+else()
+
+  # Imported target Python::Python is supported since CMake 3.12.4
+  find_package(Python 2.7 REQUIRED COMPONENTS Development)
 
 endif()
 

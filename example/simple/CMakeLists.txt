@@ -36,20 +36,23 @@ find_package(ilasynth REQUIRED)
 ##
 ## Python
 ##
-# Imported target for Python is supported only for CMake >= 3.12
-if(NOT TARGET Python::Python)
+if(${CMAKE_VERSION} VERSION_LESS 3.12)
 
-  message(STATUS "Imported target Python::Python not found.")
+  find_package(PythonLibs 2.7 REQUIRED)
 
-  add_library(Python::Python IMPORTED INTERFACE)
+  if(NOT TARGET Python::Python)
 
-  set_property(TARGET Python::Python PROPERTY
-    INTERFACE_INCLUDE_DIRECTORIES ${Python_INCLUDE_DIRS}
-  )
+    add_library(Python::Python IMPORTED INTERFACE)
 
-  set_property(TARGET Python::Python PROPERTY
-    INTERFACE_LINK_LIBRARIES ${Python_LIBRARIES}
-  )
+    set_property(TARGET Python::Python PROPERTY
+      INTERFACE_INCLUDE_DIRECTORIES ${PYTHON_INCLUDE_DIRS}
+    )
+
+    set_property(TARGET Python::Python PROPERTY
+      INTERFACE_LINK_LIBRARIES ${PYTHON_LIBRARIES}
+    )
+
+  endif()
 
 endif()
 
