@@ -17,7 +17,7 @@
 
 #include <ilasynth/ast.hpp>
 
-namespace ila {
+namespace ilasynth {
 class Abstraction;
 
 class BoogieTranslator {
@@ -50,6 +50,6 @@ public:
   // convert to boogie.
   void translate();
 };
-} // namespace ila
+} // namespace ilasynth
 
 #endif /* __BOOGIE_HPP_DEFINED__ */

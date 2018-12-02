@@ -8,7 +8,7 @@
 
 #include <fstream>
 
-namespace ila {
+namespace ilasynth {
 class CppVar;
 class CppFun;
 class CppSimFun;
@@ -252,6 +252,6 @@ private:
   CppVar* findVar(CppVarMap& mp, const std::string& name);
 };
 
-} // namespace ila
+} // namespace ilasynth
 
 #endif

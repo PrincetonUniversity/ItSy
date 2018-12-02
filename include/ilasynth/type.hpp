@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-namespace ila {
+namespace ilasynth {
 // Class for types of nodes.
 struct NodeType {
   enum Type { INVALID, BOOL, BITVECTOR, MEM, FUNC } type;
@@ -72,6 +72,6 @@ struct NodeType {
 
 // stream output operator, required for boost::lexical_cast<>
 std::ostream& operator<<(std::ostream& out, NodeType const& ntype);
-} // namespace ila
+} // namespace ilasynth
 
 #endif // __TYPE_HPP_DEFINED__

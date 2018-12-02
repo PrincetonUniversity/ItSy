@@ -16,7 +16,7 @@
 #include <ilasynth/smt.hpp>
 #include <ilasynth/synrewriter.hpp>
 
-namespace ila {
+namespace ilasynth {
 
 // ---------------------------------------------------------------------- //
 struct SupportVars {
@@ -221,6 +221,6 @@ public:
   friend class DITree;
 };
 // ---------------------------------------------------------------------- //
-} // namespace ila
+} // namespace ilasynth
 
 #endif

@@ -8,7 +8,7 @@
 
 #include <fstream>
 
-namespace ila {
+namespace ilasynth {
 // TODO
 }
 

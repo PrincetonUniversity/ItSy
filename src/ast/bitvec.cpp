@@ -8,7 +8,7 @@
 #include <ilasynth/exception.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 const std::string BitvectorOp::operatorNames[] = {
     "invalid",
@@ -518,4 +518,4 @@ std::ostream& BitvectorOp::write(std::ostream& out) const {
   return out;
 }
 
-} // namespace ila
+} // namespace ilasynth

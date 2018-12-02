@@ -18,7 +18,7 @@
 #include <ilasynth/imexport.hpp>
 #include <ilasynth/smt.hpp>
 
-namespace ila {
+namespace ilasynth {
 class Abstraction;
 class AbstractionWrapper;
 class MicroEQCheck;
@@ -709,5 +709,5 @@ struct AbstractionWrapper {
   const nmap_t& getFuns() const { return abs->getFuns(); }
 };
 
-} // namespace ila
+} // namespace ilasynth
 #endif

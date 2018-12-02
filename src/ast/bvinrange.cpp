@@ -2,7 +2,7 @@
 #include <ilasynth/ast/bvinrange.hpp>
 #include <ilasynth/exception.hpp>
 
-namespace ila {
+namespace ilasynth {
 BVInRange::BVInRange(const std::string& n_, const nptr_t& l, const nptr_t& h)
     : BitvectorExpr(l->type.bitWidth), lo(l), hi(h) {
   this->name = n_;
@@ -43,4 +43,4 @@ nptr_t BVInRange::arg(unsigned i) const {
   else
     return NULL;
 }
-} // namespace ila
+} // namespace ilasynth

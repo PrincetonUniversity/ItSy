@@ -6,7 +6,7 @@
 #include <cmath>
 #include <ilasynth/genCBMC.hpp>
 
-namespace ila {
+namespace ilasynth {
 
 static std::string getMask(const int& width);
 static std::string getSignExtMask(const int& width);
@@ -1437,4 +1437,4 @@ static std::string getSignBit(const int& width) {
   return str;
 }
 
-} // namespace ila
+} // namespace ilasynth

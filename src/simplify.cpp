@@ -2,7 +2,7 @@
 #include <ilasynth/simplify.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 ITESimplifier::ITESimplifier(const nptr_t& a)
     : ctx(), S(ctx), adapter(ctx, ""),
@@ -306,4 +306,4 @@ nptr_t ITESimplifier::simplify(Node* n) {
   ILA_ASSERT(pos != rwmap.end(), "Node not found in map after visit.");
   return pos->second;
 }
-} // namespace ila
+} // namespace ilasynth

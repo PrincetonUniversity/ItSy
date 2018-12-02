@@ -9,7 +9,7 @@
 #include <ilasynth/logging.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 void HornTranslator::initVarInt(hvptr_t v, nptr_t node) {
   Node* n = node.get();
 
@@ -718,4 +718,4 @@ void HornTranslator::initFuncVarInt(const FuncVar* n, hvptr_t v) {
 }
 
 bool HornTranslator::isLongBv(const int& w) const { return w > _bvMaxSize; }
-} // namespace ila
+} // namespace ilasynth

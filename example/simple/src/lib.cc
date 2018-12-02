@@ -8,7 +8,7 @@
 void Foo() {
   std::cout << "Hello from the lib." << std::endl;
 
-  auto abs = ila::Abstraction("abs");
+  auto abs = ilasynth::Abstraction("abs");
 
   return;
 }

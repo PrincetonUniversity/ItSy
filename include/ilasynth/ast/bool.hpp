@@ -15,7 +15,7 @@
 
 #include <ilasynth/ast.hpp>
 
-namespace ila {
+namespace ilasynth {
 class Abstraction;
 
 // ---------------------------------------------------------------------- //
@@ -154,5 +154,5 @@ public:
   // negate this boolean expression.
   static nptr_t& negate(const nptr_t& n, rwmap_t& cache);
 };
-} // namespace ila
+} // namespace ilasynth
 #endif

@@ -4,7 +4,7 @@
 #include <ilasynth/synthesizer.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 const char* Synthesizer::suffix1 = ":1";
 const char* Synthesizer::suffix2 = ":2";
 
@@ -927,4 +927,4 @@ z3::expr Synthesizer::_createSynMiter(const nptr_t& ex) {
 }
 
 // ---------------------------------------------------------------------- //
-} // namespace ila
+} // namespace ilasynth

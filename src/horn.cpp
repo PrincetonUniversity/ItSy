@@ -11,7 +11,7 @@
 #include <ilasynth/logging.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 HornVar::HornVar(const unsigned& id) : _id(id) {
   _const = false;
@@ -1358,4 +1358,4 @@ hvptr_t HornTranslator::copyVar(hvptr_t v, const int& suffix) {
   return c;
 }
 
-} // namespace ila
+} // namespace ilasynth

@@ -13,7 +13,7 @@
 #include <ilasynth/ast/node.hpp>
 #include <ilasynth/type.hpp>
 
-namespace ila {
+namespace ilasynth {
 class Abstraction;
 
 // ---------------------------------------------------------------------- //
@@ -44,5 +44,5 @@ public:
   // stream output.
   virtual std::ostream& write(std::ostream& out) const;
 };
-} // namespace ila
+} // namespace ilasynth
 #endif

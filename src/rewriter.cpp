@@ -1,7 +1,7 @@
 #include <ilasynth/rewriter.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 Rewriter::Rewriter() : rwmap(NUM_HASHTABLE_BUCKETS, nodeHash, nodeEqual) {}
 
 Rewriter::~Rewriter() {}
@@ -139,4 +139,4 @@ nptr_t Rewriter::rewrite(const Node* n) {
 void Rewriter::addRewrite(const Node* n, const nptr_t& nprime) {
   rwmap[n] = nprime;
 }
-} // namespace ila
+} // namespace ilasynth

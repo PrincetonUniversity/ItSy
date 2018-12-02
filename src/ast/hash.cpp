@@ -5,7 +5,7 @@
 #include <ilasynth/ast/hash.hpp>
 #include <ilasynth/logging.hpp>
 
-namespace ila {
+namespace ilasynth {
 std::size_t hash_value(const Node& nref) {
   if (nref.hash_inited) {
     return nref.hash_value;
@@ -141,4 +141,4 @@ std::size_t hash_value(const MemValues& mv) {
   }
   return seed;
 }
-} // namespace ila
+} // namespace ilasynth

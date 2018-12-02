@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace ila {
+namespace ilasynth {
 std::ostream& info(const char* s);
 std::ostream& log1(const char* s);
 std::ostream& log2(const char* s);
@@ -14,6 +14,6 @@ void setLogLevel(int l, const std::string& name);
 void enableLog(const std::string& name);
 void disableLog(const std::string& name);
 void clearLogs();
-} // namespace ila
+} // namespace ilasynth
 
 #endif

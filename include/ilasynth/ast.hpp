@@ -24,7 +24,7 @@
 #include <boost/python.hpp>
 #include <boost/shared_ptr.hpp>
 
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 struct NodeRef {
   // ------------------------ MEMBERS ----------------------------- //
@@ -249,6 +249,6 @@ private:
 std::ostream& operator<<(std::ostream& out, const NodeRef& node);
 
 // ---------------------------------------------------------------------- //
-} // namespace ila
+} // namespace ilasynth
 
 #endif

@@ -19,7 +19,7 @@
 
 #include <fstream>
 
-namespace ila {
+namespace ilasynth {
 class CVar;
 class CFun;
 class CVerifGen;
@@ -273,6 +273,6 @@ private:
   CVar* findVar(CVarMap& mp, const std::string& name);
 };
 
-} // namespace ila
+} // namespace ilasynth
 
 #endif

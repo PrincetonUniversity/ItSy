@@ -9,7 +9,7 @@
 #include <unordered_map>
 #include <z3++.h>
 
-namespace ila {
+namespace ilasynth {
 // A function object that converts nodes into Z3 expressions.
 class Z3ExprAdapter {
 public:
@@ -172,6 +172,6 @@ public:
 
   ~Z3FixedpointAdapter() {}
 };
-} // namespace ila
+} // namespace ilasynth
 
 #endif

@@ -6,7 +6,7 @@
 #include <ilasynth/exception.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 const std::string BoolOp::operatorNames[] = {
     "invalid", "not",   "and", "or", "xor", "xnor", "nand",
@@ -214,4 +214,4 @@ nptr_t& BoolOp::negate(const nptr_t& n, rwmap_t& cache) {
   }
   return cache[n.get()];
 }
-} // namespace ila
+} // namespace ilasynth

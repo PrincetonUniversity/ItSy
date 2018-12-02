@@ -8,7 +8,7 @@
 
 using namespace std;
 
-namespace ila {
+namespace ilasynth {
 
 void MicroUnroller::addInputNodes() {
   // assume all uabs's input has a parent
@@ -692,4 +692,4 @@ bool MicroUnroller::checkMiter(z3::solver& S, z3::expr& e1, z3::expr& e2,
   }
 }
 
-} // namespace ila
+} // namespace ilasynth

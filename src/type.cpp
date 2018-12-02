@@ -2,7 +2,7 @@
 #include <ilasynth/exception.hpp>
 #include <ilasynth/type.hpp>
 
-namespace ila {
+namespace ilasynth {
 // stream output operator, required for boost::lexical_cast<>
 std::ostream& operator<<(std::ostream& out, NodeType const& ntype) {
   switch (ntype.type) {
@@ -123,4 +123,4 @@ NodeType NodeType::getMem(int aw, int dw) { return NodeType(MEM, aw, dw); }
 NodeType NodeType::getFunc(int rw, const std::vector<int>& aw) {
   return NodeType(FUNC, rw, aw);
 }
-} // namespace ila
+} // namespace ilasynth

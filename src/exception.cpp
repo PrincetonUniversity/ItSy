@@ -1,6 +1,6 @@
 #include <ilasynth/exception.hpp>
 
-namespace ila {
+namespace ilasynth {
 // Exception translator.
 void translateILAException(PyILAException const& ex) {
   PyErr_SetString(ex.exception, ex.message.c_str());
@@ -8,4 +8,4 @@ void translateILAException(PyILAException const& ex) {
 
 // Destructor.
 PyILAException::~PyILAException() throw() {}
-} // namespace ila
+} // namespace ilasynth

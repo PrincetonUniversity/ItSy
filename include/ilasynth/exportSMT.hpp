@@ -7,7 +7,7 @@
 #include <ilasynth/smt.hpp>
 #include <iostream>
 
-namespace ila {
+namespace ilasynth {
 class SMTExport {
   typedef std::pair<std::string, int> nstage_t;
   typedef std::vector<nstage_t> nstage_vec_t;
@@ -19,6 +19,6 @@ public:
   int get_width(const Node* n);
   bool isStageVar(const std::string& inpName, const nstage_vec_t& stageStore);
 };
-} // namespace ila
+} // namespace ilasynth
 
 #endif

@@ -1,6 +1,6 @@
 #include <ilasynth/exportSMT.hpp>
 
-namespace ila {
+namespace ilasynth {
 // the function solver.to_smt2() does not always exists
 // for Z3 >= 4.4.2, it's okay, but won't work with 4.3.2
 // we need to handle this
@@ -86,4 +86,4 @@ bool SMTExport::isStageVar(const std::string& inpName,
   }
   return false;
 }
-} // namespace ila
+} // namespace ilasynth

@@ -4,7 +4,7 @@
 #include <ilasynth/type.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 Choice::Choice(const std::string& name,
                const std::vector<boost::shared_ptr<Node>>& args_)
@@ -155,4 +155,4 @@ std::ostream& WriteSlice::write(std::ostream& out) const {
              << "#" << increment << " " << *data.get() << ")";
 }
 
-} // namespace ila
+} // namespace ilasynth

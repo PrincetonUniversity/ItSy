@@ -2,6 +2,6 @@
 #include <boost/lexical_cast.hpp>
 #include <ilasynth/cExport.hpp>
 
-namespace ila {
+namespace ilasynth {
 // TODO
 }

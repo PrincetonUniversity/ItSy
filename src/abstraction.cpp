@@ -15,7 +15,7 @@
 #include <boost/multiprecision/cpp_int.hpp>
 #include <fstream>
 
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 int Abstraction::objCnt = 0;
 
@@ -1884,4 +1884,4 @@ void Abstraction::setUpdateToFunction(CppSimGen* gen, CppFun* fun, nptr_t valid,
   //}
 }
 
-} // namespace ila
+} // namespace ilasynth

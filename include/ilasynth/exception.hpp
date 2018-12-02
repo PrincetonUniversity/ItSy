@@ -4,7 +4,7 @@
 #include <boost/exception/exception.hpp>
 #include <boost/python.hpp>
 
-namespace ila {
+namespace ilasynth {
 /*
  * This is a wrapper class for all the exceptions
  * that will be thrown from the Python code.
@@ -22,5 +22,5 @@ struct PyILAException : public boost::exception {
 };
 
 void translateILAException(PyILAException const& ex);
-} // namespace ila
+} // namespace ilasynth
 #endif // _EXCEPTION_H_DEFINED_

@@ -1,7 +1,7 @@
 #include <ilasynth/synrewriter.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 SynRewriter::SynRewriter(z3::model& mod, Z3ExprAdapter& a)
     : exprmap(NUM_HASHTABLE_BUCKETS, nodeHash, nodeEqual), m(mod), adapter(a) {}
 
@@ -109,4 +109,4 @@ nptr_t SynRewriter::rewrite(const Node* n) {
   ILA_ASSERT(pos != exprmap.end(), "Unable to find node in memo.");
   return pos->second;
 }
-} // namespace ila
+} // namespace ilasynth

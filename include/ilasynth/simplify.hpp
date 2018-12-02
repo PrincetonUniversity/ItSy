@@ -7,7 +7,7 @@
 #include <ilasynth/smt.hpp>
 #include <stack>
 
-namespace ila {
+namespace ilasynth {
 class ITESimplifier {
   z3::context ctx;
   z3::solver S;
@@ -38,5 +38,5 @@ public:
   void reset() { rwmap.clear(); }
   nptr_t simplify(Node* n);
 };
-} // namespace ila
+} // namespace ilasynth
 #endif

@@ -9,7 +9,7 @@
 #define __FUNCTION_REDUCTION_HPP_DEFINED__
 
 #include <ilasynth/ast.hpp>
-namespace ila {
+namespace ilasynth {
 class FuncReduction {
   typedef size_t FuncCode;
   // unordered_map of ...
@@ -20,6 +20,6 @@ public:
   void InsertOrDupNode(nptr_t&);
   void InsertOrDupNoRecursive(nptr_t&);
 };
-} // namespace ila
+} // namespace ilasynth
 
 #endif

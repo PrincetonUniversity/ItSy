@@ -12,7 +12,7 @@
 #include <ilasynth/logging.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 HornRewriter::HornRewriter(HornTranslator* tr, hvptr_t p) : _tr(tr), _pred(p) {}
 
@@ -621,4 +621,4 @@ void HornTranslator::allInterleaveMapping() {
     delete loopRW;
 }
 
-} // namespace ila
+} // namespace ilasynth

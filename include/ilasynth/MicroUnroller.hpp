@@ -15,7 +15,7 @@
 
 #include <ilasynth/ast.hpp>
 
-namespace ila {
+namespace ilasynth {
 class Abstraction;
 class AbstractionWrapper;
 
@@ -182,6 +182,6 @@ private:
                          MicroUnroller* u1, MicroUnroller* u2);
 };
 
-} // namespace ila
+} // namespace ilasynth
 
 #endif /* _UNROLLER_H_ */

@@ -16,7 +16,7 @@
 #include <boost/python.hpp>
 #include <boost/shared_ptr.hpp>
 
-namespace ila {
+namespace ilasynth {
 class Abstraction;
 class NodeRef;
 class Node;
@@ -181,6 +181,6 @@ struct NodeVisitorI {
   virtual void preVisit(const Node*);
   virtual void postVisit(const Node*);
 };
-} // namespace ila
+} // namespace ilasynth
 
 #endif

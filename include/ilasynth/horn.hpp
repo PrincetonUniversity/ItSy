@@ -8,7 +8,7 @@
 #include <ilasynth/ast.hpp>
 #include <ilasynth/type.hpp>
 
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 class HornVar;
 class HornLiteral;
@@ -464,6 +464,6 @@ private:
   // generate mappings for interleave modeling for all instructions.
   void allInterleaveMapping();
 };
-} // namespace ila
+} // namespace ilasynth
 
 #endif /* __HORN_HPP_DEFINED__ */

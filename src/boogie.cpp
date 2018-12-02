@@ -1,7 +1,7 @@
 #include <ilasynth/abstraction.hpp>
 #include <ilasynth/boogie.hpp>
 
-namespace ila {
+namespace ilasynth {
 BoogieTranslator::BoogieTranslator(Abstraction* a) : abs(a), c(c_, "") {
   abs->fetchExpr->getSupportVars(fetchVars);
   std::unique_ptr<nodevec_t> init_state(new nodevec_t());
@@ -35,4 +35,4 @@ void BoogieTranslator::translate() {
   while (states.size() > 0) {
   }
 }
-} // namespace ila
+} // namespace ilasynth

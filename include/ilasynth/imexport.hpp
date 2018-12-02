@@ -5,7 +5,7 @@
 
 #include <ilasynth/funcReduct.hpp>
 
-namespace ila {
+namespace ilasynth {
 // A function object that export / import the synthesized AST.
 class ImExport {
 public:
@@ -55,6 +55,6 @@ private:
   MemValues importMemValue(std::istream& in, int aw, int dw);
 };
 
-} // namespace ila
+} // namespace ilasynth
 
 #endif

@@ -10,7 +10,7 @@
 
 #include <ilasynth/ast/node.hpp>
 
-namespace ila {
+namespace ilasynth {
 struct VlgExportConfig {
   bool _extMem;
   bool _fmodule;
@@ -146,6 +146,6 @@ public:
 private:
   std::string WidthToRange(int w);
 };
-} // namespace ila
+} // namespace ilasynth
 
 #endif

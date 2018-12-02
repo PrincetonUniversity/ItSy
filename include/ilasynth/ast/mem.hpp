@@ -9,7 +9,7 @@
 #include <ilasynth/ast/node.hpp>
 #include <ilasynth/memvalues.hpp>
 
-namespace ila {
+namespace ilasynth {
 class Abstraction;
 class FuncReduction;
 
@@ -104,5 +104,5 @@ public:
   friend class FuncReduction;
 };
 
-} // namespace ila
+} // namespace ilasynth
 #endif

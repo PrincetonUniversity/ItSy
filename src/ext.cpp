@@ -9,7 +9,7 @@
 #include <ilasynth/util.hpp>
 
 using namespace boost::python;
-using namespace ila;
+using namespace ilasynth;
 
 BOOST_PYTHON_MODULE(ila) {
   initLogging();
@@ -248,10 +248,10 @@ BOOST_PYTHON_MODULE(ila) {
   // simplify.
   def("simplify", &NodeRef::simplify, return_value_policy<manage_new_object>());
   // logging.
-  def("setloglevel", &ila::setLogLevel);
-  def("enablelog", &ila::enableLog);
-  def("disablelog", &ila::disableLog);
-  def("clearlogs", &ila::clearLogs);
+  def("setloglevel", &ilasynth::setLogLevel);
+  def("enablelog", &ilasynth::enableLog);
+  def("disablelog", &ilasynth::disableLog);
+  def("clearlogs", &ilasynth::clearLogs);
 
   // bmc
   def("bmc", &AbstractionWrapper::bmc);

@@ -1,7 +1,7 @@
 #include <ilasynth/ast/hash.hpp>
 #include <ilasynth/funcReduct.hpp>
 
-namespace ila {
+namespace ilasynth {
 void FuncReduction::ProcessAST(nptr_t& ast_ptr) {
   // check if BitVectorOp, BoolOp, MemOp
   // if so
@@ -64,4 +64,4 @@ void FuncReduction::InsertOrDupNoRecursive(nptr_t& ast_ptr) {
   func_to_node_dict.insert({tree->hash_value, ast_ptr});
 }
 
-} // namespace ila
+} // namespace ilasynth

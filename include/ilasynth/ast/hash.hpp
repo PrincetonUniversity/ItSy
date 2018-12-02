@@ -24,7 +24,7 @@
 #include <ilasynth/ast.hpp>
 #include <ilasynth/ast/node.hpp>
 
-namespace ila {
+namespace ilasynth {
 std::size_t hash_value(const Node& n);
 std::size_t hash_value(const NodeType& ntype);
 std::size_t compute_hash_value(const NodeType& ntype);
@@ -57,6 +57,6 @@ template <class T> struct NodeEqual;
 template <> struct NodeEqual<const Node*> {
   bool operator()(const Node* l, const Node* r) const { return l->equal(r); }
 };
-} // namespace ila
+} // namespace ilasynth
 
 #endif

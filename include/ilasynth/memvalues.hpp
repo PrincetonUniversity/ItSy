@@ -11,7 +11,7 @@
 #include <boost/python.hpp>
 #include <z3++.h>
 
-namespace ila {
+namespace ilasynth {
 class Z3ExprAdapter;
 class MemVar;
 
@@ -74,6 +74,6 @@ struct MemValues {
   mp_int_t getItemInt(const mp_int_t& index) const;
 };
 std::ostream& operator<<(std::ostream& out, const MemValues& mv);
-} // namespace ila
+} // namespace ilasynth
 
 #endif

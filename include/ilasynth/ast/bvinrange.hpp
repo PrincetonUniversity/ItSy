@@ -7,7 +7,7 @@
 #include <ilasynth/common.hpp>
 #include <ilasynth/type.hpp>
 
-namespace ila {
+namespace ilasynth {
 class Abstraction;
 
 class BVInRange : public BitvectorExpr {
@@ -34,6 +34,6 @@ public:
   // arg i.
   virtual nptr_t arg(unsigned i) const;
 };
-} // namespace ila
+} // namespace ilasynth
 
 #endif

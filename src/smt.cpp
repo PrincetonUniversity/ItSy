@@ -4,7 +4,7 @@
 #include <ilasynth/synthesizer.hpp>
 #include <memory>
 
-namespace ila {
+namespace ilasynth {
 
 // ---------------------------------------------------------------------- //
 Z3ExprAdapter::Z3ExprAdapter(z3::context& ctx, const std::string& s)
@@ -675,4 +675,4 @@ z3::expr Z3ExprRewritingAdapter::getIOCnst(const Node* n,
     return c.bool_val(false);
   }
 }
-} // namespace ila
+} // namespace ilasynth

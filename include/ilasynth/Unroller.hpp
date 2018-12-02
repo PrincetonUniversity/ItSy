@@ -15,7 +15,7 @@
 
 #include <ilasynth/ast.hpp>
 
-namespace ila {
+namespace ilasynth {
 class Abstraction;
 
 class Unroller {
@@ -149,6 +149,6 @@ private:
 
   bool checkAbsNextExpNotNull();
 };
-} // namespace ila
+} // namespace ilasynth
 
 #endif /* _UNROLLER_H_ */

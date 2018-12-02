@@ -7,7 +7,7 @@
 #include <string>
 
 #define ILA_ASSERT(b, msg) ila_assert(b, msg, __FILE__, __LINE__)
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 void ila_assert(bool b, const char* msg, const char* file, int line);
 void ila_assert(bool b, const std::string& msg, const char* file, int line);
@@ -27,6 +27,6 @@ void set_logging_level(int level);
 
 const int NUM_HASHTABLE_BUCKETS = 1023;
 const int NUM_HASHTABLE_BUCKETS_SMALL = 63;
-}; // namespace ila
+}; // namespace ilasynth
 
 #endif // __UTIL_H_DEFINED__

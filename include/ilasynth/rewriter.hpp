@@ -5,7 +5,7 @@
 #include <ilasynth/common.hpp>
 #include <unordered_map>
 
-namespace ila {
+namespace ilasynth {
 // A function object that rewrites the AST according to the result
 // of the synthesis.
 class Rewriter {
@@ -40,5 +40,5 @@ public:
   // add a node to be rewritten.
   void addRewrite(const Node* n, const nptr_t& nprime);
 };
-} // namespace ila
+} // namespace ilasynth
 #endif

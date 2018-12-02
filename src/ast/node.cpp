@@ -7,7 +7,7 @@
 #include <ilasynth/exception.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 int Node::totalObjCnt = 0;
 
@@ -160,4 +160,4 @@ void NodeVisitorI::preVisit(const Node* n) {}
 
 void NodeVisitorI::postVisit(const Node* n) {}
 
-} // namespace ila
+} // namespace ilasynth

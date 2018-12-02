@@ -7,7 +7,7 @@
 
 #define toStr(x) (boost::lexical_cast<std::string>(x))
 
-namespace ila {
+namespace ilasynth {
 
 int VerilogExport::get_width(const Node* n) {
   const BoolExpr* boolexp = NULL;
@@ -844,4 +844,4 @@ std::string VerilogExport::WidthToRange(int w) {
   return "";
 }
 
-} // namespace ila
+} // namespace ilasynth

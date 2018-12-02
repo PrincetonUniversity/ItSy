@@ -4,7 +4,7 @@
 
 using namespace std;
 
-namespace ila {
+namespace ilasynth {
 
 bool NEQVarNotExist(const std::string& a1name, const std::string& a2name,
                     const std::string& notExistVarName) {
@@ -63,4 +63,4 @@ bool checkMiter(z3::solver& S, z3::expr& e1, z3::expr& e2) {
   }
 }
 
-} // namespace ila
+} // namespace ilasynth

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-namespace ila {
+namespace ilasynth {
 
 // FIXME: this whole file needs to also call getCnst.
 
@@ -193,4 +193,4 @@ void Unroller::EvalEachFrame(z3::model& m, Unroller* u, std::ostream& cexf) {
     }
   }
 }
-} // namespace ila
+} // namespace ilasynth

@@ -4,7 +4,7 @@
 #include <ilasynth/ast.hpp>
 #include <ilasynth/smt.hpp>
 
-namespace ila {
+namespace ilasynth {
 // A function object that rewrites the AST according to the result
 // of the synthesis.
 class SynRewriter {
@@ -54,6 +54,6 @@ private:
     exprmap.insert({(Node*)op, nptr});
   }
 };
-} // namespace ila
+} // namespace ilasynth
 
 #endif

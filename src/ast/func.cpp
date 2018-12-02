@@ -1,7 +1,7 @@
 #include <ilasynth/ast.hpp>
 #include <ilasynth/exception.hpp>
 #include <ilasynth/util.hpp>
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 FuncExpr::FuncExpr(int retWidth, const std::vector<int>& argsWidth)
     : Node(NodeType::getFunc(retWidth, argsWidth)) {}
@@ -38,4 +38,4 @@ bool FuncVar::equal(const Node* that_) const {
 
 std::ostream& FuncVar::write(std::ostream& out) const { return (out << name); }
 
-} // namespace ila
+} // namespace ilasynth

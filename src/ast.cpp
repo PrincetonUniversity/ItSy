@@ -8,7 +8,7 @@
 #include <ilasynth/simplify.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 
 // ---------------------------------------------------------------------- //
 NodeRef::NodeRef() : node(new Node()) {
@@ -876,4 +876,4 @@ std::ostream& operator<<(std::ostream& out, const NodeRef& n) {
 }
 
 // ---------------------------------------------------------------------- //
-} // namespace ila
+} // namespace ilasynth

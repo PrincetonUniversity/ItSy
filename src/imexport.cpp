@@ -2,7 +2,7 @@
 #include <ilasynth/imexport.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 ImExport::ImExport(FuncReduction* funcRedPtr, int reduce)
     : FuncReductor(funcRedPtr), reduceWhenImport(reduce) {}
 
@@ -438,4 +438,4 @@ MemValues ImExport::importMemValue(std::istream& in, int aw, int dw) {
   return mv;
 }
 
-} // namespace ila
+} // namespace ilasynth

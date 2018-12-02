@@ -7,7 +7,7 @@
 #include <string.h>
 #include <string>
 
-namespace ila {
+namespace ilasynth {
 
 // ---------------------------------------------------------------------- //
 void ila_assert(bool b, const char* msg, const char* file, int line) {
@@ -96,4 +96,4 @@ void set_logging_level(int l) {
 #endif
 }
 
-} // namespace ila
+} // namespace ilasynth

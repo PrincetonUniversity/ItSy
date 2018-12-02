@@ -7,7 +7,7 @@
 #include <ilasynth/abstraction.hpp>
 
 #include <vector>
-namespace ila {
+namespace ilasynth {
 class Abstraction;
 class NodeRef;
 
@@ -28,6 +28,6 @@ bool bmc(unsigned n1, Abstraction* a1, NodeRef* r1, unsigned n2,
          Abstraction* a2, NodeRef* r2);
 
 bool checkMiter(z3::solver& S, z3::expr& e1, z3::expr& e2);
-} // namespace ila
+} // namespace ilasynth
 
 #endif /* _SAFETYVC_H_ */

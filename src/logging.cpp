@@ -5,7 +5,7 @@
 #include <ilasynth/util.hpp>
 #include <set>
 
-namespace ila {
+namespace ilasynth {
 std::ostream* infostream;
 std::ostream* log1stream;
 std::ostream* log2stream;
@@ -85,4 +85,4 @@ void disableLog(const std::string& name) { enabledLogs.erase(name); }
 
 void clearLogs() { enabledLogs.clear(); }
 
-} // namespace ila
+} // namespace ilasynth

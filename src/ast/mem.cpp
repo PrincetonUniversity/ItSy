@@ -2,7 +2,7 @@
 #include <ilasynth/exception.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 const std::string MemOp::operatorNames[] = {"invalid", "store", "storeblock",
                                             "ite"};
@@ -185,4 +185,4 @@ nptr_t MemOp::arg(unsigned i) const {
 }
 
 // ---------------------------------------------------------------------- //
-} // namespace ila
+} // namespace ilasynth

@@ -8,7 +8,7 @@
 #include <ilasynth/smt.hpp>
 #include <ilasynth/util.hpp>
 
-namespace ila {
+namespace ilasynth {
 // ---------------------------------------------------------------------- //
 z3::context MemValues::c_eq;
 z3::solver MemValues::S_eq(c_eq);
@@ -311,4 +311,4 @@ std::ostream& operator<<(std::ostream& out, const MemValues& mv) {
   return out;
 }
 
-} // namespace ila
+} // namespace ilasynth
