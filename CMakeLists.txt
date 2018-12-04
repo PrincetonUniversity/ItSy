@@ -21,6 +21,7 @@ project(ilasynth VERSION 1.0
 # build configuration
 # ---------------------------------------------------------------------------- #
 option(ILASYNTH_EXPORT_PACKAGE "export cmake package if enabled"            OFF)
+option(ILASYNTH_BUILD_DOCS     "Build documentation if enabled"             OFF)
 
 # ---------------------------------------------------------------------------- #
 # VARIABLE
@@ -124,5 +125,13 @@ if(NOT TARGET uninstall)
       ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake/cmake_uninstall.cmake
   )
 
+endif()
+
+
+# ---------------------------------------------------------------------------- #
+# Documents
+# ---------------------------------------------------------------------------- #
+if(${ILASYNTH_BUILD_DOCS})
+  add_subdirectory(docs)
 endif()
 
