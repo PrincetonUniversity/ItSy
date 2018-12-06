@@ -3,7 +3,7 @@ The Python API for template-based synthesis for Instruction-Level Abstraction (I
 
 ## Building ILA synthesis tool
 
-[![Build Status](https://travis-ci.org/PrincetonUniversity/ILA-Synthesis-Python.svg?branch=master)](https://travis-ci.org/PrincetonUniversity/ILA-Synthesis-Python)
+[![Build Status](https://travis-ci.org/PrincetonUniversity/ILA-Synthesis-Engine.svg?branch=master)](https://travis-ci.org/PrincetonUniversity/ILA-Synthesis-Engine)
 
 ### Dependencies 
 [z3](https://github.com/Z3Prover/z3) 4.4.0 or above.
