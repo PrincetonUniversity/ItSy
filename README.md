@@ -7,7 +7,7 @@ This is an implementation of the templated-based synthesis of Instruction-Level 
 ## License
 The synthesis engine is licensed under MIT license. See [LICENSE](LICENSE) for details. 
 
-### Dependencies 
+## Dependencies 
 [z3](https://github.com/Z3Prover/z3) 4.4.0 to 4.7.1.
 
 [boost](https://www.boost.org) 1.50.0 or above.
