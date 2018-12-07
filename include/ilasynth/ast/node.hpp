@@ -100,7 +100,7 @@ public:
   void setRefName(const std::string& refN) { refName = refN; }
 
   int getId() { return id; }
-  NodeType getType() { return type; }
+  NodeType getType() const { return type; }
 
   // ---------------------- METHODS ------------------- //
   // polymorphic clone method: do we need this?
