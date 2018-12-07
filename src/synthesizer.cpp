@@ -1,3 +1,4 @@
+#include <ilasynth/assert.hpp>
 #include <ilasynth/exception.hpp>
 #include <ilasynth/logging.hpp>
 #include <ilasynth/rewriter.hpp>

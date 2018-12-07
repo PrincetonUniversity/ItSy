@@ -1,5 +1,6 @@
 #include <boost/algorithm/string.hpp>
 #include <fstream>
+#include <ilasynth/assert.hpp>
 #include <ilasynth/exception.hpp>
 #include <ilasynth/logging.hpp>
 #include <ilasynth/util.hpp>

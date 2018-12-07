@@ -115,11 +115,7 @@ public:
 
   // inputs are only at 0
   z3::expr& getPrimaryInput(int nNum) { return m_vPrimaryInputs[nNum]; }
-  z3::expr& getPrimaryInput(Node* var) {
-    auto pos = m_mInputIndices.find(var);
-    ILA_ASSERT(pos != m_mInputIndices.end(), "Unable to find var in input.");
-    return getPrimaryInput(pos->second);
-  }
+  z3::expr& getPrimaryInput(Node* var);
 
   std::vector<z3::expr>& getPrimaryInputs() { return m_vPrimaryInputs; }
 
@@ -129,17 +125,9 @@ public:
     return idx;
   }
 
-  z3::expr& getOutput(Node* var) {
-    auto pos = m_mStateIndices.find(var);
-    ILA_ASSERT(pos != m_mStateIndices.end(), "Unable to find var in map.");
-    return getOutput(frame(), pos->second);
-  }
+  z3::expr& getOutput(Node* var);
 
-  z3::expr& getOutput(unsigned nFrame, Node* var) {
-    auto pos = m_mStateIndices.find(var);
-    ILA_ASSERT(pos != m_mStateIndices.end(), "Unable to find var in map.");
-    return getOutput(nFrame, pos->second);
-  }
+  z3::expr& getOutput(unsigned nFrame, Node* var);
 
   z3::expr& getOutput(unsigned nFrame, int nNum) {
     return m_vOutputs.at(nFrame)[nNum];

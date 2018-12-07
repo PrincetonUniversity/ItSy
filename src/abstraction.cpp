@@ -2,6 +2,7 @@
 #include <ilasynth/Unroller.hpp>
 #include <ilasynth/VerilogExport.hpp>
 #include <ilasynth/abstraction.hpp>
+#include <ilasynth/assert.hpp>
 #include <ilasynth/boogie.hpp>
 #include <ilasynth/exception.hpp>
 #include <ilasynth/exportSMT.hpp>

@@ -1,5 +1,6 @@
 #include <ilasynth/MicroUnroller.hpp>
 #include <ilasynth/abstraction.hpp>
+#include <ilasynth/assert.hpp>
 #include <ilasynth/ast.hpp>
 #include <ilasynth/logging.hpp>
 #include <ilasynth/rewriter.hpp>
@@ -9,6 +10,24 @@
 using namespace std;
 
 namespace ilasynth {
+
+z3::expr& MicroUnroller::getPrimaryInput(Node* var) {
+  auto pos = m_mInputIndices.find(var);
+  ILA_ASSERT(pos != m_mInputIndices.end(), "Unable to find var in input.");
+  return getPrimaryInput(pos->second);
+}
+
+z3::expr& MicroUnroller::getOutput(Node* var) {
+  auto pos = m_mStateIndices.find(var);
+  ILA_ASSERT(pos != m_mStateIndices.end(), "Unable to find var in map.");
+  return getOutput(frame(), pos->second);
+}
+
+z3::expr& MicroUnroller::getOutput(unsigned nFrame, Node* var) {
+  auto pos = m_mStateIndices.find(var);
+  ILA_ASSERT(pos != m_mStateIndices.end(), "Unable to find var in map.");
+  return getOutput(nFrame, pos->second);
+}
 
 void MicroUnroller::addInputNodes() {
   // assume all uabs's input has a parent

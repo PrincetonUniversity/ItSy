@@ -2,6 +2,7 @@
 #include <boost/format.hpp>
 #include <boost/lexical_cast.hpp>
 
+#include <ilasynth/assert.hpp>
 #include <ilasynth/ast.hpp>
 #include <ilasynth/common.hpp>
 #include <ilasynth/exception.hpp>

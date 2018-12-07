@@ -115,11 +115,7 @@ public:
 
   void addOutput(z3::expr out) { m_vOutputs.at(frame()).push_back(out); }
 
-  z3::expr& getOutput(unsigned nFrame, Node* var) {
-    auto pos = m_mStateIndices.find(var);
-    ILA_ASSERT(pos != m_mStateIndices.end(), "Unable to find var in map.");
-    return getOutput(nFrame, pos->second);
-  }
+  z3::expr& getOutput(unsigned nFrame, Node* var);
 
   z3::expr& getOutput(unsigned nFrame, int nNum) {
     return m_vOutputs.at(nFrame)[nNum];

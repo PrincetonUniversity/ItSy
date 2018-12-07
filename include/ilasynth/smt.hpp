@@ -114,7 +114,8 @@ public:
     expr ci = c.bool_const(name.c_str());
     z3::expr mi = m.eval(ci, true);
     Z3_lbool bi = Z3_get_bool_value(c, mi);
-    ILA_ASSERT(bi != Z3_L_UNDEF, "Unable to extract bool from model.");
+    // FIXME avoid macro in template
+    // ILA_ASSERT(bi != Z3_L_UNDEF, "Unable to extract bool from model.");
     return bi == Z3_L_TRUE;
   }
 

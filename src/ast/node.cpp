@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include <ilasynth/abstraction.hpp>
+#include <ilasynth/assert.hpp>
 #include <ilasynth/ast.hpp>
 #include <ilasynth/ast/hash.hpp>
 #include <ilasynth/exception.hpp>

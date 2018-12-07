@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iomanip>
 
+#include <ilasynth/assert.hpp>
 #include <ilasynth/ast.hpp>
 #include <ilasynth/common.hpp>
 #include <ilasynth/exception.hpp>

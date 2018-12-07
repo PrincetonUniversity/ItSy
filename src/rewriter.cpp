@@ -1,3 +1,4 @@
+#include <ilasynth/assert.hpp>
 #include <ilasynth/rewriter.hpp>
 #include <ilasynth/util.hpp>
 

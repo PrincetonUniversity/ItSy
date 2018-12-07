@@ -4,6 +4,7 @@
 #include <boost/format.hpp>
 #include <boost/lexical_cast.hpp>
 #include <cmath>
+#include <ilasynth/assert.hpp>
 #include <ilasynth/genCBMC.hpp>
 
 namespace ilasynth {

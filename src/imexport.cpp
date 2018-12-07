@@ -1,4 +1,5 @@
 #include <ilasynth/abstraction.hpp>
+#include <ilasynth/assert.hpp>
 #include <ilasynth/imexport.hpp>
 #include <ilasynth/util.hpp>
 

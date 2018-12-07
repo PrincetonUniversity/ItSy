@@ -2,6 +2,7 @@
 #include <set>
 
 #include <boost/python.hpp>
+#include <ilasynth/assert.hpp>
 #include <ilasynth/ast.hpp>
 #include <ilasynth/exception.hpp>
 #include <ilasynth/logging.hpp>

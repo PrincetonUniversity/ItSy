@@ -3,6 +3,7 @@
 #include <boost/format.hpp>
 #include <boost/lexical_cast.hpp>
 #include <cmath>
+#include <ilasynth/assert.hpp>
 #include <ilasynth/cppsimgen.hpp>
 
 namespace ilasynth {

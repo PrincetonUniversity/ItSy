@@ -1,5 +1,6 @@
 #include <ilasynth/Unroller.hpp>
 #include <ilasynth/abstraction.hpp>
+#include <ilasynth/assert.hpp>
 #include <ilasynth/ast.hpp>
 #include <ilasynth/rewriter.hpp>
 #include <ilasynth/smt.hpp>
@@ -29,6 +30,12 @@ void Unroller::_initVar(Z3ExprAdapter& z3expr, const npair_t& p, int& cnt) {
     m_pSolver->add(p1);
   }
   m_mStateIndices[p.var.get()] = cnt++;
+}
+
+z3::expr& Unroller::getOutput(unsigned nFrame, Node* var) {
+  auto pos = m_mStateIndices.find(var);
+  ILA_ASSERT(pos != m_mStateIndices.end(), "Unable to find var in map.");
+  return getOutput(nFrame, pos->second);
 }
 
 void Unroller::addTr0() {

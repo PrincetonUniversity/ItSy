@@ -1,3 +1,4 @@
+#include <ilasynth/assert.hpp>
 #include <ilasynth/exportSMT.hpp>
 
 namespace ilasynth {

@@ -2,6 +2,7 @@
 
 #include <boost/range/adaptor/reversed.hpp>
 #include <ilasynth/abstraction.hpp>
+#include <ilasynth/assert.hpp>
 #include <ilasynth/logging.hpp>
 #include <ilasynth/util.hpp>
 
@@ -842,6 +843,10 @@ std::string VerilogExport::WidthToRange(int w) {
   if (w > 1)
     return std::string("[") + toStr(w - 1) + ":0]";
   return "";
+}
+
+void VerilogExport::exportUabs(const Abstraction& uabs) {
+  ILA_ASSERT(false, "Not implemented.");
 }
 
 } // namespace ilasynth

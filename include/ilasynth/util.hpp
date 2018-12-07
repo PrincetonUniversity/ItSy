@@ -6,7 +6,6 @@
 #include <ilasynth/common.hpp>
 #include <string>
 
-#define ILA_ASSERT(b, msg) ila_assert(b, msg, __FILE__, __LINE__)
 namespace ilasynth {
 // ---------------------------------------------------------------------- //
 void ila_assert(bool b, const char* msg, const char* file, int line);

@@ -40,7 +40,8 @@ public:
 private:
   template <typename T> void _synChoiceExpr(const ChoiceExpr<T>* op) {
     int i = (int)op->nArgs() - 2;
-    ILA_ASSERT(i >= 0, "Choice has too few args!");
+    // FIXME avoid macro in template
+    // ILA_ASSERT(i >= 0, "Choice has too few args!");
     for (; i >= 0; i--) {
       bool ci = adapter.getChoiceBool<T>(m, op, i);
       if (ci) {

@@ -139,9 +139,7 @@ public:
   void exportFunc(const std::string& name, const npair_t& np);
   void setModuleName(const std::string& modName);
 
-  void exportUabs(const Abstraction& uabs) {
-    ILA_ASSERT(false, "Not implemented.");
-  }
+  void exportUabs(const Abstraction& uabs);
 
 private:
   std::string WidthToRange(int w);
