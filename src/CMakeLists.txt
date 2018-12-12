@@ -10,9 +10,14 @@ set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+
   find_package(Boost 1.50 REQUIRED COMPONENTS python)
+
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+
   find_package(Boost 1.50 REQUIRED COMPONENTS python27)
+  add_library(Boost::python ALIAS Boost::python27)
+
 endif()
 
 # Imported target for Boost is supported for CMake >= 3.5
