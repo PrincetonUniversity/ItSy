@@ -16,7 +16,20 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
   find_package(Boost 1.50 REQUIRED COMPONENTS python27)
-  add_library(Boost::python ALIAS Boost::python27)
+  
+  if(NOT TARGET Boost::python)
+
+    add_library(Boost::python IMPORTED INTERFACE)
+
+    set_property(Boost::python PROPERTY
+      INTERFACE_INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIRS}
+    )
+
+    set_property(Boost::python PROPERTY
+      INTERFACE_LINK_LIBRARIES ${Boost_LIBRARY_DIRS}
+    )
+
+  endif()
 
 endif()
 
