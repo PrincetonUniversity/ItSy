@@ -11,7 +11,7 @@ set(Boost_USE_STATIC_RUNTIME OFF)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   find_package(Boost 1.50 REQUIRED COMPONENTS python)
-else if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   find_package(Boost 1.50 REQUIRED COMPONENTS python27)
 endif()
 
