@@ -9,9 +9,9 @@ set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 
-if(${CMAKE_OS_NAME} MATCHES "Linux")
+if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
   find_package(Boost 1.50 REQUIRED COMPONENTS python)
-else if (${CMAKE_OS_NAME} MATCHES "Darwin")
+else if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   find_package(Boost 1.50 REQUIRED COMPONENTS python27)
 endif()
 
