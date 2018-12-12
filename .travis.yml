@@ -10,9 +10,11 @@ matrix:
     - name: "linux"
       os: linux
       dist: xenial
+      compiler: gcc
 
     - name: "osx"
       os: osx
+      compiler: clang
 
 sudo: required
 
