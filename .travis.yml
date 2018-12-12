@@ -50,18 +50,18 @@ install:
   - z3 --version
 
 before_script:
-  - bjam --version
   - cmake --version
 
 script:
   - cd $TRAVIS_BUILD_DIR/
-  # Boost bjam
-  - bjam
-  - rm -r bin/*
   # CMake
   - mkdir -p $TRAVIS_BUILD_DIR/cbuild && cd cbuild
   - cmake .. 
   - make
+  # Boost bjam
+  - cd $TRAVIS_BUILD_DIR
+  - bjam
+  
 
 notifications:
     email: false
