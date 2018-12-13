@@ -21,11 +21,11 @@ elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
     add_library(Boost::python IMPORTED INTERFACE)
 
-    set_property(Boost::python PROPERTY
+    set_property(TARGET Boost::python PROPERTY
       INTERFACE_INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIRS}
     )
 
-    set_property(Boost::python PROPERTY
+  set_property(TARGET Boost::python PROPERTY
       INTERFACE_LINK_LIBRARIES ${Boost_LIBRARY_DIRS}
     )
 
