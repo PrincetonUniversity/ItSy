@@ -9,7 +9,29 @@ set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 
-find_package(Boost 1.50 REQUIRED COMPONENTS python)
+if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+
+  find_package(Boost 1.50 REQUIRED COMPONENTS python)
+
+elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+
+  find_package(Boost 1.50 REQUIRED COMPONENTS python27)
+  
+  if(NOT TARGET Boost::python)
+
+    add_library(Boost::python IMPORTED INTERFACE)
+
+    set_property(TARGET Boost::python PROPERTY
+      INTERFACE_INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIRS}
+    )
+
+  set_property(TARGET Boost::python PROPERTY
+      INTERFACE_LINK_LIBRARIES ${Boost_LIBRARY_DIRS}
+    )
+
+  endif()
+
+endif()
 
 # Imported target for Boost is supported for CMake >= 3.5
 if(NOT TARGET Boost::python)
