@@ -57,10 +57,16 @@ script:
   - mkdir -p $TRAVIS_BUILD_DIR/cbuild && cd cbuild
   - cmake .. 
   - make
+  - sudo make install
   # Boost bjam
   - cd $TRAVIS_BUILD_DIR
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then bjam ; fi
-  
+
+after_success:
+  - cd $TRAVIS_BUILD_DIR/example/simple
+  - mkdir -p build && cd build
+  - cmake ..
+  - make
 
 notifications:
     email: false

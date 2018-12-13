@@ -9,27 +9,22 @@ set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+find_package(Boost COMPONENTS python)
 
-  find_package(Boost 1.50 REQUIRED COMPONENTS python)
+if(NOT Boost_FOUND)
 
-elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+  find_package(Boost REQUIRED COMPONENTS python27)
 
-  find_package(Boost 1.50 REQUIRED COMPONENTS python27)
-  
-  if(NOT TARGET Boost::python)
-
-    add_library(Boost::python IMPORTED INTERFACE)
-
-    set_property(TARGET Boost::python PROPERTY
-      INTERFACE_INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIRS}
-    )
+  # FIXME see if shared library is possible
+  add_library(Boost::python STATIC IMPORTED INTERFACE)
 
   set_property(TARGET Boost::python PROPERTY
-      INTERFACE_LINK_LIBRARIES ${Boost_LIBRARY_DIRS}
-    )
+    INTERFACE_INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIRS}
+  )
 
-  endif()
+  set_property(TARGET Boost::python PROPERTY
+    INTERFACE_LINK_LIBRARIES ${Boost_LIBRARY_DIRS}
+  )
 
 endif()
 
@@ -75,7 +70,8 @@ find_package(Z3 REQUIRED)
 # TARGET
 # library target
 # ---------------------------------------------------------------------------- #
-add_library(${ILASYNTH_AST_LIB_NAME}
+# FIXME use shared library if possible
+add_library(${ILASYNTH_AST_LIB_NAME} STATIC
   ast/bitvec.cpp 
   ast/bool.cpp 
   ast/bvinrange.cpp 
