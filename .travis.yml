@@ -5,14 +5,15 @@ branches:
 
 language: cpp
 
-os:
-  - linux
-    dist: xenial
-  - osx
-
-compiler:
-  - gcc
-  - clang
+matrix:
+   include:
+     - name: "linux"
+       os: linux
+       dist: xenial
+       compiler: gcc
+     - name: "osx"
+       os: osx
+       compiler: clang
 
 sudo: required
 
