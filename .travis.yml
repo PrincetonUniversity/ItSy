@@ -29,7 +29,7 @@ addons:
   homebrew:
     update: true
     packages:
-      - boost-build
+      - boost
       - boost-python
    
 before_install:
