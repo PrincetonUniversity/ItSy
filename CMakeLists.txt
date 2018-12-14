@@ -42,6 +42,8 @@ set(ILASYNTH_CMAKE_VERSION_CONFIG_FILE
 set(ILASYNTH_CMAKE_PROJECT_CONFIG_FILE
   "${ILASYNTH_CMAKE_CONFIG_DIR}/${PROJECT_NAME}Config.cmake")
 
+set(ILASYNTH_BOOST_PYTHON FALSE)
+
 
 # ---------------------------------------------------------------------------- #
 # External dependencies

@@ -13,8 +13,7 @@ find_package(Boost 1.50.0 COMPONENTS python)
 
 if(Boost_FOUND)
   
-  set(ILANG_BOOST_PYTHON TRUE)
-  mark_as_advanced(ILANG_BOOST_PYTHON)
+  set(ILASYNTH_BOOST_PYTHON TRUE)
 
 else()
 
@@ -85,9 +84,13 @@ set_target_properties(${ILASYNTH_AST_LIB_NAME} PROPERTIES
 ##
 ## link libraries
 ##
-target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Boost::python)
-target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Python::Python)
 target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC z3::z3)
+target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Python::Python)
+if(${ILASYNTH_BOOST_PYTHON})
+  target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Boost::python)
+else()
+  target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Boost::python27)
+endif()
 
 ##
 ## include paths

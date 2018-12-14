@@ -5,7 +5,7 @@ include(CMakeFindDependencyMacro)
 
 find_dependency(Z3 REQUIRED)
 
-if(@ILANG_BOOST_PYTHON@)
+if(@ILASYNTH_BOOST_PYTHON@)
   find_dependency(Boost 1.50 REQUIRED COMPONENTS python)
 else()
   find_dependency(Boost 1.50 REQUIRED COMPONENTS python27)
