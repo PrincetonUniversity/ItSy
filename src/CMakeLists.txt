@@ -15,8 +15,12 @@ if(NOT Boost_FOUND)
 
   find_package(Boost REQUIRED COMPONENTS python27)
 
+  if(TARGET Boost::python27)
+    message(STATUS "Find Boost::python27")
+  endif()
+
   # FIXME see if shared library is possible
-  add_library(Boost::python STATIC IMPORTED INTERFACE)
+  add_library(Boost::python IMPORTED INTERFACE)
 
   set_property(TARGET Boost::python PROPERTY
     INTERFACE_INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIRS}
