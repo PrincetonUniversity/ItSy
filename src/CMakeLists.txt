@@ -11,22 +11,20 @@ set(Boost_USE_STATIC_RUNTIME OFF)
 
 find_package(Boost 1.50.0 COMPONENTS python)
 
-if(Boost_FOUND)
+if(NOT Boost_FOUND)
   
-  set(ILASYNTH_BOOST_PYTHON TRUE)
-  set(ILASYNTH_BOOST_PYTHON TRUE PARENT_SCOPE)
-
-else()
-
+  # python component is renamed in Boost >= 1.68
   find_package(Boost 1.50.0 REQUIRED COMPONENTS python27)
+
+  set(BOOST_PY_COMP "python27")
+  set(BOOST_PY_COMP "python27" PARENT_SCOPE)
 
 endif()
 
 # Imported target for Boost is supported for CMake >= 3.5
-if(NOT TARGET Boost::python AND NOT TARGET Boost::python27)
-  message(FATAL_ERROR "Boost::python or Boost::python27 not found.")
+if(NOT TARGET Boost::${BOOST_PY_COMP})
+  message(FATAL_ERROR "Boost python not found.")
 endif()
-
 
 ##
 ## Python
@@ -87,11 +85,7 @@ set_target_properties(${ILASYNTH_AST_LIB_NAME} PROPERTIES
 ##
 target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC z3::z3)
 target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Python::Python)
-if(${ILASYNTH_BOOST_PYTHON})
-  target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Boost::python)
-else()
-  target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Boost::python27)
-endif()
+target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Boost::${BOOST_PY_COMP})
 
 ##
 ## include paths

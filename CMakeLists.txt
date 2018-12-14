@@ -16,12 +16,14 @@ project(ilasynth VERSION 1.0
                  #DESCRIPTION "Templted-based ILA synthesis"
 )
 
+
 # ---------------------------------------------------------------------------- #
 # OPTION
 # build configuration
 # ---------------------------------------------------------------------------- #
 option(ILASYNTH_EXPORT_PACKAGE "export cmake package if enabled"            OFF)
 option(ILASYNTH_BUILD_DOCS     "Build documentation if enabled"             OFF)
+
 
 # ---------------------------------------------------------------------------- #
 # VARIABLE
@@ -42,7 +44,7 @@ set(ILASYNTH_CMAKE_VERSION_CONFIG_FILE
 set(ILASYNTH_CMAKE_PROJECT_CONFIG_FILE
   "${ILASYNTH_CMAKE_CONFIG_DIR}/${PROJECT_NAME}Config.cmake")
 
-set(ILASYNTH_BOOST_PYTHON FALSE)
+set(BOOST_PY_COMP                       "python")
 
 
 # ---------------------------------------------------------------------------- #
