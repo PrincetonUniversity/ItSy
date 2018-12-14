@@ -14,6 +14,7 @@ find_package(Boost 1.50.0 COMPONENTS python)
 if(Boost_FOUND)
   
   set(ILASYNTH_BOOST_PYTHON TRUE)
+  set(ILASYNTH_BOOST_PYTHON TRUE PARENT_SCOPE)
 
 else()
 
