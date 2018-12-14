@@ -9,33 +9,21 @@ set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+find_package(Boost 1.50.0 COMPONENTS python)
 
-  find_package(Boost 1.50 REQUIRED COMPONENTS python)
-
-elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-
-  find_package(Boost 1.50 REQUIRED COMPONENTS python27)
+if(NOT Boost_FOUND)
   
-  if(NOT TARGET Boost::python)
+  # python component is renamed in Boost >= 1.68
+  find_package(Boost 1.50.0 REQUIRED COMPONENTS python27)
 
-    add_library(Boost::python IMPORTED INTERFACE)
-
-    set_property(TARGET Boost::python PROPERTY
-      INTERFACE_INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIRS}
-    )
-
-  set_property(TARGET Boost::python PROPERTY
-      INTERFACE_LINK_LIBRARIES ${Boost_LIBRARY_DIRS}
-    )
-
-  endif()
+  set(BOOST_PY_COMP "python27")
+  set(BOOST_PY_COMP "python27" PARENT_SCOPE)
 
 endif()
 
 # Imported target for Boost is supported for CMake >= 3.5
-if(NOT TARGET Boost::python)
-  message(FATAL_ERROR "Boost::python not found.")
+if(NOT TARGET Boost::${BOOST_PY_COMP})
+  message(FATAL_ERROR "Boost python not found.")
 endif()
 
 ##
@@ -75,7 +63,7 @@ find_package(Z3 REQUIRED)
 # TARGET
 # library target
 # ---------------------------------------------------------------------------- #
-add_library(${ILASYNTH_AST_LIB_NAME}
+add_library(${ILASYNTH_AST_LIB_NAME} 
   ast/bitvec.cpp 
   ast/bool.cpp 
   ast/bvinrange.cpp 
@@ -95,9 +83,9 @@ set_target_properties(${ILASYNTH_AST_LIB_NAME} PROPERTIES
 ##
 ## link libraries
 ##
-target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Boost::python)
-target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Python::Python)
 target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC z3::z3)
+target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Python::Python)
+target_link_libraries(${ILASYNTH_AST_LIB_NAME} PUBLIC Boost::${BOOST_PY_COMP})
 
 ##
 ## include paths
