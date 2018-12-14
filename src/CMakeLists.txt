@@ -9,33 +9,24 @@ set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 
-find_package(Boost COMPONENTS python)
+find_package(Boost 1.50.0 COMPONENTS python)
 
-if(NOT Boost_FOUND)
+if(Boost_FOUND)
+  
+  set(ILANG_BOOST_PYTHON TRUE)
+  mark_as_advanced(ILANG_BOOST_PYTHON)
 
-  find_package(Boost REQUIRED COMPONENTS python27)
+else()
 
-  if(TARGET Boost::python27)
-    message(STATUS "Find Boost::python27")
-  endif()
-
-  # FIXME see if shared library is possible
-  add_library(Boost::python IMPORTED INTERFACE)
-
-  set_property(TARGET Boost::python PROPERTY
-    INTERFACE_INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIRS}
-  )
-
-  set_property(TARGET Boost::python PROPERTY
-    INTERFACE_LINK_LIBRARIES ${Boost_LIBRARY_DIRS}
-  )
+  find_package(Boost 1.50.0 REQUIRED COMPONENTS python27)
 
 endif()
 
 # Imported target for Boost is supported for CMake >= 3.5
-if(NOT TARGET Boost::python)
-  message(FATAL_ERROR "Boost::python not found.")
+if(NOT TARGET Boost::python AND NOT TARGET Boost::python27)
+  message(FATAL_ERROR "Boost::python or Boost::python27 not found.")
 endif()
+
 
 ##
 ## Python
@@ -74,8 +65,7 @@ find_package(Z3 REQUIRED)
 # TARGET
 # library target
 # ---------------------------------------------------------------------------- #
-# FIXME use shared library if possible
-add_library(${ILASYNTH_AST_LIB_NAME} STATIC
+add_library(${ILASYNTH_AST_LIB_NAME} 
   ast/bitvec.cpp 
   ast/bool.cpp 
   ast/bvinrange.cpp 
