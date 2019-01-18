@@ -32,7 +32,9 @@ MemValues::MemValues(Z3ExprAdapter& c, const z3::model& m, const MemVar* mem)
 
   // extract model.
   expr mexp = c.getExpr(mem);
+  log2("Z3Update.is_app") << "mem exp " << mexp << std::endl;
   expr mval = m.eval(mexp);
+  log2("Z3Update.is_app") << "mem val " << mval << std::endl;
   func_decl mfd = mval.decl();
 
   // std::cout << "mval: " << mval << std::endl;

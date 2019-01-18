@@ -62,10 +62,15 @@ def main():
     assert sys.areEqual(ila.implies(ante, conseq), t)
     assert not sys.areEqual(conseq, t)
 
+    ila.enablelog("Z3Update")
+    ila.setloglevel(2, "")
+
     r1 = iram[addr]+1
     r2 = iram[addr]+iram[addr+1]
     r = ila.choice('r', r1, r2)
     print sys.syn_elem("foo", r, foo)
+
+    ila.disablelog("Z3Update")
 
     def bar(d):
         print d

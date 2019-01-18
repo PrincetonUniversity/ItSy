@@ -13,6 +13,9 @@ Z3ExprAdapter::Z3ExprAdapter(z3::context& ctx, const std::string& s)
       cnstmap(NUM_HASHTABLE_BUCKETS, nodeHash, nodeEqual), c(ctx), suffix(s),
       name_suffix("") {
   simplify = false;
+
+  // Issue #2: disable model compression for extracting memvalue (avoid lambda)
+  z3::set_param("model_compress", false);
 }
 
 Z3ExprAdapter::Z3ExprAdapter(z3::context& ctx, const char* s)
@@ -20,6 +23,9 @@ Z3ExprAdapter::Z3ExprAdapter(z3::context& ctx, const char* s)
       cnstmap(NUM_HASHTABLE_BUCKETS, nodeHash, nodeEqual), c(ctx), suffix(s),
       name_suffix("") {
   simplify = false;
+
+  // Issue #2: disable model compression for extracting memvalue (avoid lambda)
+  z3::set_param("model_compress", false);
 }
 
 Z3ExprAdapter::~Z3ExprAdapter() {}
