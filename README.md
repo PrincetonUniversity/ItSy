@@ -113,7 +113,7 @@ To allow your project to support either an externally installed or an embedded l
 # Top level CMakeLists.txt
 project(MY_PROJ)
 ...
-option(MY_PROJ_USE_EXTERNAL_ILANG "Use an external library" OFF)
+option(MY_PROJ_USE_EXTERNAL_ILASYNYH "Use an external library" OFF)
 ...
 add_subdirectory(externals)
 ...
@@ -125,7 +125,7 @@ target_link_libraries(my_proj PRIVATE ilasynth::ilasynth)
 ``` cmake
 # externals/CMakeLists.txt
 ...
-if(MY_PROJ_USE_EXTERNAL_ILANG)
+if(MY_PROJ_USE_EXTERNAL_ILASYNTH)
   find_package(ilasynth REQUIRED)
 else()
   add_subdirectory(ilasynth)
