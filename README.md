@@ -1,4 +1,4 @@
-[![Build Status](https://semaphoreci.com/api/v1/bo-yuan-huang/ila-synthesis-python/branches/master/badge.svg)](https://semaphoreci.com/bo-yuan-huang/ila-synthesis-python)
+[![Build Status](https://semaphoreci.com/api/v1/bo-yuan-huang/ila-synthesis-python/branches/master/shields_badge.svg)](https://semaphoreci.com/bo-yuan-huang/ila-synthesis-python)
 [![Build Status](https://travis-ci.org/PrincetonUniversity/ILA-Synthesis-Engine.svg?branch=master)](https://travis-ci.org/PrincetonUniversity/ILA-Synthesis-Engine)
 [![Build status](https://ci.appveyor.com/api/projects/status/6wigyt506lel7kep/branch/master?svg=true)](https://ci.appveyor.com/project/Bo-Yuan-Huang/ila-synthesis-engine/branch/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e36f95e9ce45432ba515a996728fe6e5)](https://www.codacy.com/app/Bo-Yuan-Huang/ILA-Synthesis-Engine?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=PrincetonUniversity/ILA-Synthesis-Engine&amp;utm_campaign=Badge_Grade)
