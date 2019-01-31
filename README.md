@@ -1,33 +1,44 @@
-[![Build Status](https://semaphoreci.com/api/v1/bo-yuan-huang/ila-synthesis-python/branches/master/shields_badge.svg)](https://semaphoreci.com/bo-yuan-huang/ila-synthesis-python)
-[![Build Status](https://travis-ci.org/PrincetonUniversity/ILA-Synthesis-Engine.svg?branch=master)](https://travis-ci.org/PrincetonUniversity/ILA-Synthesis-Engine)
+[![Build Status](https://semaphoreci.com/api/v1/bo-yuan-huang/itsy/branches/master/shields_badge.svg)](https://semaphoreci.com/bo-yuan-huang/itsy)
+[![Build Status](https://travis-ci.org/PrincetonUniversity/ItSy.svg?branch=master)](https://travis-ci.org/PrincetonUniversity/ItSy)
 [![Build status](https://ci.appveyor.com/api/projects/status/6wigyt506lel7kep/branch/master?svg=true)](https://ci.appveyor.com/project/Bo-Yuan-Huang/ila-synthesis-engine/branch/master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e36f95e9ce45432ba515a996728fe6e5)](https://www.codacy.com/app/Bo-Yuan-Huang/ILA-Synthesis-Engine?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=PrincetonUniversity/ILA-Synthesis-Engine&amp;utm_campaign=Badge_Grade)
-[![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/PrincetonUniversity/ILA-Synthesis-Engine.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/PrincetonUniversity/ILA-Synthesis-Engine/context:cpp)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/PrincetonUniversity/ILA-Synthesis-Engine.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/PrincetonUniversity/ILA-Synthesis-Engine/context:python)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/PrincetonUniversity/ILA-Synthesis-Engine.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/PrincetonUniversity/ILA-Synthesis-Engine/alerts/)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e36f95e9ce45432ba515a996728fe6e5)](https://www.codacy.com/app/Bo-Yuan-Huang/ItSy?utm_source=github.com&utm_medium=referral&utm_content=PrincetonUniversity/ItSy&utm_campaign=Badge_Grade)
+[![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/PrincetonUniversity/ItSy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/PrincetonUniversity/ItSy/context:cpp)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/PrincetonUniversity/ItSy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/PrincetonUniversity/ItSy/context:python)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/PrincetonUniversity/ItSy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/PrincetonUniversity/ItSy/alerts/)
 
-- [Dependencies](#dependencies)
-- [Building](#building)
-  - [Boost for Python API](#boost-for-python-api)
-  - [CMake for C++ Projects](#cmake-for-cpp-projects)
-- [Python API](#python-api)
-- [CMake Integration](#cmake-integration)
-  - [External](#external)
-  - [Embedded](#embedded)
-  - [Supporting Both](#supporting-both)
+-   [Dependencies](#dependencies)
 
-## About 
+-   [Building](#building)
+    -   [Boost for Python API](#boost-for-python-api)
+    -   [CMake for C++ Projects](#cmake-for-cpp-projects)
 
-This is an implementation of the templated-based synthesis of Instruction-Level Abstraction (ILA) based on [TCAD18](https://ieeexplore.ieee.org/document/8076885/). 
+-   [Python API](#python-api)
 
-## License
+-   [CMake Integration](#cmake-integration)
+    -   [External](#external)
+    -   [Embedded](#embedded)
+    -   [Supporting Both](#supporting-both)
 
-The synthesis engine is licensed under MIT license. See [LICENSE](LICENSE) for details. 
+## About
 
-## Dependencies 
+This is an implementation of the templated-based Instruction-Level Abstraction (ILA) synthesis based on [TCAD18](https://ieeexplore.ieee.org/document/8076885/). 
 
-- [z3](https://github.com/Z3Prover/z3) 4.4.0 or above.
-- [boost](https://www.boost.org) 1.50.0 or above.
+## Dependencies
+
+-   [z3](https://github.com/Z3Prover/z3) 4.4.0 or above.
+-   [boost](https://www.boost.org) 1.50.0 or above.
+
+For Debian-based UNIX, you can install by running
+
+```bash
+apt-get install libboost-all-dev z3 libz3-dev
+```
+
+For OSX, you can install by running
+
+```bash
+brew install boost boost-python z3
+```
 
 ## Building
 
@@ -36,15 +47,14 @@ Currently, unit tests are available in the Boost build only.
 
 ### Boost for Python API
 
-``` bash
+```bash
 cd /root/of/this/repo
 bjam -j$(nproc)
-
 ```
 
 ### CMake for Cpp Projects
 
-``` bash
+```bash
 cd /root/of/this/repo
 mkdir -p build
 cd build
@@ -56,22 +66,23 @@ make -j$(nproc)
 
 You need to first export the library. 
 
-``` bash
+```bash
 # bash
 export PYTHONPATH=$(pwd)/build:$PYTHONPATH
 ```
 
-``` python
+```python
 # Python 
 import ila
 abs = ila.Abstraction("test")
 ```
 
 ## CMake Integration
+
 You can use the `ilasynth::ilasynth` interface target in CMake. 
 This target populates the appropriate usage requirements for include directories, linked libraries, and compile features. 
 
-``` c++
+```c++
 #include <ilasynth/abstraction.hpp>
 
 void foo () {
@@ -83,7 +94,7 @@ void foo () {
 
 To use the library from a CMake project, you can locate it directly with `find_package()` and use the namespaced imported target from the generated package configuration:
 
-``` cmake
+```cmake
 # CMakeLists.txt
 find_package(ilasynth REQUIRED)
 ...
@@ -97,7 +108,7 @@ target_link_libraries(my_proj PRIVATE ilasynth::ilasynth)
 It also supports embedded build, but is not recommended due to its size. 
 To embed the library directly into an existing CMake project, place the entire source tree in a subdirectory and call `add_subdirectory()` in your `CMakeLists.txt` file:
 
-``` cmake 
+```cmake
 add_subdirectory(ilasynth)
 ...
 add_library(my_proj ...)
@@ -109,7 +120,7 @@ target_link_libraries(my_proj PRIVATE ilasynth::ilasynth)
 
 To allow your project to support either an externally installed or an embedded library, you can use the following pattern:
 
-``` cmake
+```cmake
 # Top level CMakeLists.txt
 project(MY_PROJ)
 ...
@@ -122,7 +133,7 @@ add_library(my_proj ...)
 target_link_libraries(my_proj PRIVATE ilasynth::ilasynth)
 ```
 
-``` cmake
+```cmake
 # externals/CMakeLists.txt
 ...
 if(MY_PROJ_USE_EXTERNAL_ILASYNTH)
