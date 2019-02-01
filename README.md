@@ -4,7 +4,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e36f95e9ce45432ba515a996728fe6e5)](https://www.codacy.com/app/Bo-Yuan-Huang/ItSy?utm_source=github.com&utm_medium=referral&utm_content=PrincetonUniversity/ItSy&utm_campaign=Badge_Grade)
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/PrincetonUniversity/ItSy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/PrincetonUniversity/ItSy/context:cpp)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/PrincetonUniversity/ItSy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/PrincetonUniversity/ItSy/context:python)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/PrincetonUniversity/ItSy.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/PrincetonUniversity/ItSy/alerts/)
+[![Documentation](https://img.shields.io/badge/docs-doxygen-blue.svg)](https://princetonuniversity.github.io/ItSy/html/namespaceilasynth.html)
 
 -   [Dependencies](#dependencies)
 
