@@ -145,3 +145,11 @@ endif()
 ```
 
 `externals/ilasynth` is then a complete copy of this source tree, if enabled.
+
+## Contributors
+
+-   [Pramod Subramanyan](https://github.com/pramodsu) 
+-   [Bo-Yuan Huang](https://github.com/Bo-Yuan-Huang) 
+-   [Hongce Zhang](https://github.com/zhanghongce) 
+-   [Yakir Vizel](https://github.com/yvizel) 
+
