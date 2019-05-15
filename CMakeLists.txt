@@ -22,11 +22,13 @@ project(ilasynth VERSION 1.0
 # ---------------------------------------------------------------------------- #
 option(ILASYNTH_EXPORT_PACKAGE "Export cmake package if enabled"            OFF)
 option(ILASYNTH_BUILD_DOCS     "Build documentation if enabled"             OFF)
-#option(BUILD_SHARED_LIBS       "Build shared libraries"                     OFF)
 
-include(CMakeDependentOption)
+if(${APPLE})
+  set(BUILD_SHARED_LIBS OFF)
+else(${LINUX})
+  option(BUILD_SHARED_LIBS     "Build shared libraries"                     OFF)
+endif()
 
-cmake_dependent_option(BUILD_SHARED_LIBS "Build shared libs" ON "APPLE" OFF)
 
 # ---------------------------------------------------------------------------- #
 # VARIABLE
