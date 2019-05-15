@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.8)
 
-if(${CMAKE_VERSION} VERSION_LESS 3.12)
+if(${CMAKE_VERSION} VERSION_LESS 3.14)
   cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
 else()
-  cmake_policy(VERSION 3.12)
+  cmake_policy(VERSION 3.14)
 endif()
 
 
@@ -13,7 +13,6 @@ endif()
 # ---------------------------------------------------------------------------- #
 project(ilasynth VERSION 1.0 
                  LANGUAGES CXX
-                 #DESCRIPTION "Templted-based ILA synthesis"
 )
 
 
@@ -21,8 +20,9 @@ project(ilasynth VERSION 1.0
 # OPTION
 # build configuration
 # ---------------------------------------------------------------------------- #
-option(ILASYNTH_EXPORT_PACKAGE "export cmake package if enabled"            OFF)
+option(ILASYNTH_EXPORT_PACKAGE "Export cmake package if enabled"            OFF)
 option(ILASYNTH_BUILD_DOCS     "Build documentation if enabled"             OFF)
+option(BUILD_SHARED_LIBS       "Build shared libraries"                      ON)
 
 
 # ---------------------------------------------------------------------------- #
@@ -45,6 +45,11 @@ set(ILASYNTH_CMAKE_PROJECT_CONFIG_FILE
   "${ILASYNTH_CMAKE_CONFIG_DIR}/${PROJECT_NAME}Config.cmake")
 
 set(BOOST_PY_COMP                       "python")
+
+if(${BUILD_SHARED_LIBS})
+  set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
+  set(CMAKE_MACOSX_RPATH TRUE)
+endif()
 
 
 # ---------------------------------------------------------------------------- #
