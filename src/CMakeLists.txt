@@ -9,7 +9,11 @@ set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
 
-find_package(Boost 1.50.0 COMPONENTS python)
+find_package(Boost COMPONENTS python)
+
+if(Boost_FOUND) 
+  message(STATUS "Boost version ${Boost_VERSION_STRING}")
+endif()
 
 if(NOT Boost_FOUND)
   
@@ -23,7 +27,8 @@ endif()
 
 # Imported target for Boost is supported for CMake >= 3.5
 if(NOT TARGET Boost::${BOOST_PY_COMP})
-  message(FATAL_ERROR "Boost python not found.")
+  message(STATUS "Target Boost::python not found.")
+  message(FATAL_ERROR "Remove cache and re-run with -DBoost_NO_BOOST_CMAKE=ON")
 endif()
 
 ##

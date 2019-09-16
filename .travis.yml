@@ -46,7 +46,7 @@ addons:
 script:
   - cd $TRAVIS_BUILD_DIR/
   - mkdir -p build && cd build
-  - cmake .. 
+  - cmake .. -DBoost_NO_BOOST_CMAKE=ON
   - make -j$(nproc)
   - sudo make install
 
