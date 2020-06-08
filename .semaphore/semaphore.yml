@@ -22,7 +22,7 @@ blocks:
             - cmake .. -DCMAKE_BUILD_TYPE=Debug
             - make -j$(nproc)
             - sudo make install
-            - cd ../../example/simple
+            - cd ../example/simple
             - mkdir -p build
             - cd build
             - cmake ..
