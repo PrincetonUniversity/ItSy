@@ -7,7 +7,7 @@ cache:
 
 install:
 - sudo apt update --yes
-- sudo apt install z3 libz3-dev bison flex
+- sudo apt install --yes z3 libz3-dev bison flex
 
 build_script:
 - if [ ! -d "$APPVEYOR_BUILD_FOLDER/CacheInstall/lib" ]; then export NO_CACHE="1"; fi
