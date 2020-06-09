@@ -2,22 +2,11 @@ version: 1.0.{build}
 image: Ubuntu2004
 clone_depth: 1
 
-cache:
-  - CacheInstall
-
 install:
 - sudo apt update --yes
-- sudo apt install --yes z3 libz3-dev bison flex python3 python3-all-dev
+- sudo apt install --yes z3 libz3-dev bison flex python python-all-dev
 
 build_script:
-- if [ ! -d "$APPVEYOR_BUILD_FOLDER/CacheInstall/lib" ]; then export NO_CACHE="1"; fi
-- if [ $NO_CACHE == "1" ]; then mkdir -p $APPVEYOR_BUILD_FOLDER/CacheInstall; fi
-- if [ $NO_CACHE == "1" ]; then cd $APPVEYOR_BUILD_FOLDER; fi
-- if [ $NO_CACHE == "1" ]; then wget --no-verbose http://dl.bintray.com/boostorg/release/1.65.0/source/boost_1_65_0.tar.gz; fi
-- if [ $NO_CACHE == "1" ]; then tar zxvf boost_1_65_0.tar.gz; fi
-- if [ $NO_CACHE == "1" ]; then cd boost_1_65_0; fi
-- if [ $NO_CACHE == "1" ]; then ./bootstrap.sh --with-python=$(which python3) --prefix=$APPVEYOR_BUILD_FOLDER/CacheInstall; fi
-- if [ $NO_CACHE == "1" ]; then ./b2 install; fi
 - cd $APPVEYOR_BUILD_FOLDER/CacheInstall
 - sudo cp -R * /usr
 - cd $APPVEYOR_BUILD_FOLDER
