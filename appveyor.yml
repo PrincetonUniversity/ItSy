@@ -7,8 +7,6 @@ install:
 - sudo apt install --yes z3 libz3-dev bison flex python python-all-dev
 
 build_script:
-- cd $APPVEYOR_BUILD_FOLDER/CacheInstall
-- sudo cp -R * /usr
 - cd $APPVEYOR_BUILD_FOLDER
 - mkdir -p build
 - cd build
